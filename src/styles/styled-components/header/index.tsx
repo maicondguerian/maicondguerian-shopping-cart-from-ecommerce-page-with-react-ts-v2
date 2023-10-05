@@ -7,6 +7,8 @@ export const Navbar = styled.div`
     header{
         display: flex;
         padding: 2rem 0 0;
+
+
         
         a{
             padding: .2rem .5rem;
@@ -23,6 +25,7 @@ export const Navbar = styled.div`
                 justify-content: center;
                 padding:  0  0 1.5rem;
                 color: ${({ theme }) => theme.colors.darkGrayishBlue};
+
             }
 
         .currentPage{
@@ -43,6 +46,7 @@ export const Navbar = styled.div`
             align-items: center;
             justify-content: center;
             padding: 0;
+            
 
             &::before{
                 content: '';
@@ -76,6 +80,7 @@ export const Navbar = styled.div`
 ul:nth-child(2){
         display: flex;
         align-items: center;
+
         gap: 2rem;
         li:nth-child(2){ 
             img{
