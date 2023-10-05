@@ -4,15 +4,20 @@ import Logo from "../../../styles/styled-components/header/logo";
 import { BsCart2 } from 'react-icons/bs';
 import Separator from "../separador";
 import { Link } from "react-router-dom";
+import usePath from "../../../data/custom-hooks/usePath";
 
 export default function Header() {
+    const { isCurrentPath } = usePath();
+
+    console.log(isCurrentPath('/') ? 's' : 'n');
+
     return (
         <>
             <Styled.Header>
                 <ul>
                     <li><Link to={'/'}><Logo /></Link></li>
-                    <li><Link to={'/collections'}> colections</Link></li>
-                    <li>man</li>
+                    <li><Link className={isCurrentPath('/collections') ? 'currentPage' : 'regularStyle'} to={'/collections'}> colections</Link></li>
+                    <li>men</li>
                     <li>woman</li>
                     <li>about us</li>
                     <li>contact</li>
