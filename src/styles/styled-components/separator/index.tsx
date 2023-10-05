@@ -4,5 +4,6 @@ export const Separator = styled.hr`
     height: 1px;
     background-color: ${({ theme }) => theme.colors.grayishBlue};
     border: transparent;
-    opacity: .5;
+    opacity: .3;
     `;
+// margin: ${({ theme }) => theme.spacing.md} 0; 

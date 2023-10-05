@@ -6,6 +6,7 @@ export const LightTheme = {
         lightGrayishBlue: 'hsl(223, 64%, 98%)',
         white: 'hsl(0, 0%, 100%)',
         blackWith75OpacityForLightboxBackground: 'hsl(0, 0%, 0%)',
-        redColor: 'red'
+        orange: 'hsl(26, 100%, 55%)',
+        PaleOrange: 'hsl(25, 100%, 94%)'
     }
 };

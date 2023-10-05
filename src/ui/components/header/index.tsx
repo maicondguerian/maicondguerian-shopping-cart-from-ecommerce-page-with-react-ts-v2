@@ -16,7 +16,7 @@ export default function Header() {
             <Styled.Header>
                 <ul>
                     <li><Link to={'/'}><Logo /></Link></li>
-                    <li className={isCurrentPath('/collections') ? 'currentPage' : 'regularStyle'}><Link to={'/collections'}> colections</Link></li>
+                    <li className={isCurrentPath('/collections') ? 'currentPage' : 'regularStyle'}><Link to={'/collections'}> collections</Link></li>
                     <li>men</li>
                     <li>woman</li>
                     <li>about us</li>
