@@ -1,2 +1,2 @@
-export { Header } from './header';
+export { Navbar } from './header';
 export { Separator } from './separator';

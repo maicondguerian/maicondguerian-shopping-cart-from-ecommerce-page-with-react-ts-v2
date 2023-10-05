@@ -5,43 +5,16 @@ import { BsCart2 } from 'react-icons/bs';
 import Separator from "../separador";
 import { Link } from "react-router-dom";
 import usePath from "../../../data/custom-hooks/usePath";
-import styled from "styled-components";
 
 export default function Header() {
     const { isCurrentPath } = usePath();
 
-    const inlineStyle = {
-        display: 'flex',
-        justifyContent: 'space-around',
-    };
-
-    const StyledUl = styled.ul`
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-
-        li:nth-child(2){ 
-            img{
-                height: 50px;
-                border: solid 2px transparent;
-                border-radius: 50%;
-                cursor: pointer;
-
-                &:hover{
-                    border: solid 2px  ${({ theme }) => theme.colors.orange};
-                    transition: all .2s ease-in-out;
-                }
-            }
-        }
-
-    `;
-
     return (
         <>
-            <div style={inlineStyle}>
-                <Styled.Header>
+            <Styled.Navbar>
+                <header>
                     <ul>
-                        <li>hamb</li>
+                        <li></li>
                         <li><Link to={'/'}><Logo /></Link></li>
                     </ul>
                     <ul>
@@ -51,12 +24,12 @@ export default function Header() {
                         <li>about us</li>
                         <li>contact</li>
                     </ul>
-                </Styled.Header>
-                <StyledUl>
+                </header>
+                <ul>
                     <li><BsCart2 size={'25px'} /></li>
                     <li><ProfileAvatarImage /></li>
-                </StyledUl>
-            </div>
+                </ul>
+            </Styled.Navbar>
             <Separator width={'90%'} />
         </>
     )
