@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Header = styled.header`
     display: flex;
     justify-content: space-around;
-    padding: 2rem 0 0 ;
+    padding: 2rem 0 .2rem ;
 
     >ul{
         display: flex;
@@ -22,10 +22,9 @@ export const Header = styled.header`
             }
         }
 
-        
         .currentPage{
             bottom: 0;
-            box-shadow: 0  3px red; 
+            box-shadow: 0  4px red; 
         }
     }
 
