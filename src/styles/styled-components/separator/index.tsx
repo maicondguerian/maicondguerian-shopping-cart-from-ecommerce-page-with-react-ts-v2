@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+
+export const CenteredSeparatorContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`;
 
 export const Separator = styled.hr`
     height: 1px;

@@ -3,7 +3,7 @@ import { BsCart2 } from "react-icons/bs";
 import Separator from "../separador";
 import { Link } from "react-router-dom";
 import usePath from "../../../data/custom-hooks/usePath";
-import { ImageRenderer } from "../img-renderer";
+import { ImageRenderer } from "../image-renderer";
 import avatar from "/public/assets/image-avatar.png";
 import logo from "/public/assets/logo.svg";
 

@@ -1,17 +1,11 @@
 import { Styled } from "../../../styles";
 
-interface SeparatorProps {
-    width?: string;
-}
-export default function Separator({ width }: SeparatorProps) {
+export default function Separator({ width }: { width?: string }) {
 
-    const customStyle = {
-        display: 'flex',
-        justifyContent: 'center',
-    }
     return (
-        <div style={customStyle}>
-            <Styled.Separator style={{ width: width }}></Styled.Separator>
-        </div>
-    )
+        <Styled.CenteredSeparatorContainer>
+            <Styled.Separator style={{ width: width }} />
+        </Styled.CenteredSeparatorContainer>
+    );
+
 }

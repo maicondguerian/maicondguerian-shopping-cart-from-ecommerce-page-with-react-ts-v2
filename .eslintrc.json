@@ -38,7 +38,10 @@
         "no-trailing-spaces": "error",
         "quotes": [
             "error",
-            "double"
+            "double",
+            {
+                "allowTemplateLiterals": true
+            }
         ],
         "rest-spread-spacing": [
             "error",
