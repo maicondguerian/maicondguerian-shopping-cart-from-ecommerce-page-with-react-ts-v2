@@ -1,6 +1,10 @@
 import { Styled } from "../../../styles";
 
-export default function Separator({ width }: { width?: string }) {
+type SeparatorProps = {
+    width?: "30%" | "60%" | "90%" | "100%"
+}
+
+export default function Separator({ width }: SeparatorProps) {
 
     return (
         <Styled.CenteredSeparatorContainer>

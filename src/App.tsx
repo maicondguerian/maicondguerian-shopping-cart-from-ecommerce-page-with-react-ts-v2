@@ -1,13 +1,12 @@
 import { ThemeProvider } from "styled-components";
-import Header from "./ui/components/header";
 import { LightTheme } from "./styles";
-
+import Container from "./ui/components/container";
 
 function App() {
   return (
     <ThemeProvider theme={LightTheme}>
-      <Header />
+      <Container />
     </ThemeProvider>
-  )
+  );
 }
 export default App;
