@@ -5,5 +5,4 @@ export const Separator = styled.hr`
     background-color: ${({ theme }) => theme.colors.grayishBlue};
     border: transparent;
     opacity: .3;
-    `;
-// margin: ${({ theme }) => theme.spacing.md} 0; 
+`;

@@ -14,7 +14,7 @@ export default function Header() {
             <Styled.Navbar>
                 <header>
                     <ul>
-                        <li></li>
+                        <li />
                         <li><Link to={'/'}><Logo /></Link></li>
                     </ul>
                     <ul>

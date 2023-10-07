@@ -8,5 +8,13 @@ export const LightTheme = {
         blackWith75OpacityForLightboxBackground: 'hsl(0, 0%, 0%)',
         orange: 'hsl(26, 100%, 55%)',
         PaleOrange: 'hsl(25, 100%, 94%)'
+    },
+    spacing: {
+        xs: '4px',
+        sm: '8px',
+        md: '16px',
+        lg: '24px',
+        xl: '32px',
+        xxl: '64px'
     }
 };
