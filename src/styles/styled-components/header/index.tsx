@@ -23,7 +23,6 @@ export const Navbar = styled.div`
                 justify-content: center;
                 padding:  0  0 calc(${({ theme }) => theme.spacing.md} + .5rem);
                 color: ${({ theme }) => theme.colors.darkGrayishBlue};
-
             }
 
             .currentPage{

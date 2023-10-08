@@ -1,14 +1,16 @@
 import { Styled } from "../../../styles";
-import { BsCart2 } from "react-icons/bs";
 import Separator from "../separador";
 import { Link } from "react-router-dom";
 import usePath from "../../../data/custom-hooks/usePath";
 import { ImageRenderer } from "../image-renderer";
 import avatar from "/public/assets/image-avatar.png";
 import logo from "/public/assets/logo.svg";
+import ShoppingCart from "../shopping-cart";
 
 export default function Header() {
     const { isCurrentPath } = usePath();
+
+    const count = 0;
 
     return (
         <>
@@ -33,7 +35,10 @@ export default function Header() {
                 </header>
                 <ul>
                     <li>
-                        <BsCart2 size={"25px"} />
+                        <ShoppingCart
+                            isCartEmpty={count < 1}
+                            onClick={() => console.log("click")}
+                        />
                     </li>
                     <li>
                         <ImageRenderer path={avatar} />
