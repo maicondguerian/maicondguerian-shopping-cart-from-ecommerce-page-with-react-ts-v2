@@ -1,13 +1,27 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+import { ShoppingCartProps } from "../../../ui/components/shopping-cart";
 
 export const Cart = styled.button`
-position: relative;
+    position: relative;
     border: transparent;
     background-color: transparent;
     cursor: pointer;
+    `;
+
+type CartBadgeProps = Pick<ShoppingCartProps, "isCartEmpty">
+
+const jump = keyframes`
+    from {
+        transform: translateY(0px);
+        border-radius: 50%;
+    }
+
+    to {
+        transform: translateY(-10px);
+    }
 `;
 
-export const CartBadge = styled.span`
+export const CartBadge = styled.span<CartBadgeProps>`
     align-items: center;
     justify-content: center;
     width: 20px;
@@ -19,4 +33,7 @@ export const CartBadge = styled.span`
     position: absolute;
     top: -5px;
     right: -7px;
+    animation: ${jump} 0.5s ease-in-out;
 `;
+CartBadge.shouldForwardProp = (prop) => prop !== "isCartEmpty";
+

@@ -10,8 +10,7 @@ import ShoppingCart from "../shopping-cart";
 export default function Header() {
     const { isCurrentPath } = usePath();
 
-    const count = 0;
-
+    const count = 4;
     return (
         <>
             <Styled.Navbar>
@@ -45,7 +44,7 @@ export default function Header() {
                     </li>
                 </ul>
             </Styled.Navbar>
-            <Separator width={"90%"} />
+            <Separator width="90%" />
         </>
     );
 }
