@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ShoppingCartProps } from "../../../ui/components/shopping-cart";
 
 export const Cart = styled.button`
