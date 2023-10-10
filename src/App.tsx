@@ -1,10 +1,11 @@
 import { ThemeProvider } from "styled-components";
-import { LightTheme } from "./styles";
-import Container from "./ui/components/container";
+import { GlobalStyles, LightTheme } from "@/styles";
+import Container from "@ui/container";
 
 function App() {
   return (
     <ThemeProvider theme={LightTheme}>
+      <GlobalStyles />
       <Container />
     </ThemeProvider>
   );

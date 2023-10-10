@@ -1,7 +1,7 @@
 import { Styled } from "../../../styles";
 
 export type SeparatorProps = {
-    width?: "30%" | "60%" | "90%" | "100%"
+    width?: "30%" | "60%" | "70%" | "90%" | "100%"
 }
 
 export default function Separator({ width }: SeparatorProps) {

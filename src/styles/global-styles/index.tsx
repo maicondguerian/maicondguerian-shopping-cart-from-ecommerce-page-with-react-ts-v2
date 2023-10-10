@@ -18,12 +18,13 @@ export const GlobalStyles = createGlobalStyle`
         color: inherit;
         text-decoration: none;
     }
-
+    
     html{
         font-size: 16px;
     }
     
     body{
+        color: ${({ theme }) => theme.font.primary};
         font-family: 'Kumbh Sans', sans-serif;
     }
 

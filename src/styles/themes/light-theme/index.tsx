@@ -9,6 +9,9 @@ export const LightTheme = {
         orange: "hsl(26, 100%, 55%)",
         PaleOrange: "hsl(25, 100%, 94%)"
     },
+    font: {
+        primary: "#333"
+    },
     spacing: {
         xs: "4px",
         sm: "8px",

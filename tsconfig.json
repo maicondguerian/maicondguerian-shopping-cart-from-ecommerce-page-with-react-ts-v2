@@ -1,5 +1,17 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@ui/*": [
+        "src/ui/components/*"
+      ]
+    },
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": [

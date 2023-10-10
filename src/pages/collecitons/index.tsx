@@ -1,10 +1,15 @@
-interface ColectionsProps {
-    pageName?: string;
-}
-export default function Colections({ pageName = 'defaltName' }: ColectionsProps) {
+import ProductDetails from "@ui/product-details";
+
+export default function Colections() {
+    const styledPage = {
+        display: "flex",
+        justifyContent: "center",
+        gap: "5rem"
+    };
     return (
-        <div>
-            <h1>sncikers {pageName}</h1>
+        <div style={styledPage}>
+            <ProductDetails />
+            <ProductDetails />
         </div>
-    )
+    );
 }

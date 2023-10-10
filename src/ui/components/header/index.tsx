@@ -1,16 +1,17 @@
-import { Styled } from "../../../styles";
-import Separator from "../separador";
 import { Link } from "react-router-dom";
-import usePath from "../../../data/custom-hooks/usePath";
-import { ImageRenderer } from "../image-renderer";
+import { Styled } from "@/styles";
+import Separator from "@ui/separador";
+import usePath from "@/data/custom-hooks/usePath";
+import { ImageRenderer } from "@ui/image-renderer";
 import avatar from "/public/assets/image-avatar.png";
 import logo from "/public/assets/logo.svg";
-import ShoppingCart from "../shopping-cart";
+import ShoppingCart from "@ui/shopping-cart";
 
 export default function Header() {
     const { isCurrentPath } = usePath();
 
-    const count = 4;
+    const count = 2;
+
     return (
         <>
             <Styled.Navbar>
@@ -44,7 +45,7 @@ export default function Header() {
                     </li>
                 </ul>
             </Styled.Navbar>
-            <Separator width="90%" />
+            <Separator width="70%" />
         </>
     );
 }

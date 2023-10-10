@@ -6,9 +6,7 @@ export const Cart = styled.button`
     border: transparent;
     background-color: transparent;
     cursor: pointer;
-    `;
-
-type CartBadgeProps = Pick<ShoppingCartProps, "isCartEmpty">
+`;
 
 const jump = keyframes`
     from {
@@ -20,6 +18,8 @@ const jump = keyframes`
         transform: translateY(-10px);
     }
 `;
+
+type CartBadgeProps = Pick<ShoppingCartProps, "isCartEmpty">
 
 export const CartBadge = styled.span<CartBadgeProps>`
     align-items: center;

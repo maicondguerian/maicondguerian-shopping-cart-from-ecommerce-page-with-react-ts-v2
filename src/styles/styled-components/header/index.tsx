@@ -47,9 +47,10 @@ export const Navbar = styled.div`
                     position: absolute;
                     width: 100%;
                     height: 3px;
-                    background-color: #000;
+                    background-color: ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground};
                     padding: 0;
-                    box-shadow: 0 -12px #000, 0 12px #000;
+                    box-shadow: 0 -12px ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground},
+                     0 12px ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground};
                 }
 
                 @media screen and (min-width: 900px){

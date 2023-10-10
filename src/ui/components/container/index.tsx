@@ -1,5 +1,5 @@
-import { Styled } from "../../../styles";
-import Header from "../header";
+import { Styled } from "@/styles";
+import Header from "@ui/header";
 
 interface ContainerProps {
     children?: React.ReactNode;

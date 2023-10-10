@@ -12,6 +12,9 @@ declare module "styled-components" {
             orange: string;
             PaleOrange: string,
         },
+        font: {
+            primary: string;
+        },
         spacing: {
             xs: string;
             sm: string;
