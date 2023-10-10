@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { ShoppingCartProps } from "../../../ui/components/shopping-cart";
+import { ShoppingCartProps } from "@ui/shopping-cart";
 
 export const Cart = styled.button`
     position: relative;

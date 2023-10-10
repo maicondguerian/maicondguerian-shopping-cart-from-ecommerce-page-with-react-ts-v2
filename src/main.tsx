@@ -1,9 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "@/pages/home/index.tsx";
-import Colections from "@/pages/collecitons/index.tsx";
-import App from "@/App";
+import ReactDOM from "react-dom/client";
+
+import App from "@src/App";
+import HomePage from "@src/pages/home";
+import Colections from "@src/pages/collecitons";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

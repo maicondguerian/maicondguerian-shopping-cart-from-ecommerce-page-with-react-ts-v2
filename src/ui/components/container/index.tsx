@@ -1,4 +1,4 @@
-import { Styled } from "@/styles";
+import { Styled } from "@styles/";
 import Header from "@ui/header";
 
 interface ContainerProps {

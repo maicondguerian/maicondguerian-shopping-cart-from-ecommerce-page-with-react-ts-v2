@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import { GlobalStyles, LightTheme } from "@/styles";
+import { GlobalStyles, LightTheme } from "@styles/";
 import Container from "@ui/container";
 
 function App() {

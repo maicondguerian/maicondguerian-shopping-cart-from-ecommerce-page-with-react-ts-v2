@@ -1,8 +1,10 @@
+import PRODUCT from "@/product.json";
 
 export default function ProductDetails() {
     return (
         <div>
-            lele
+            <div>lele</div>
+            {PRODUCT.brand}
         </div>
     );
 }
