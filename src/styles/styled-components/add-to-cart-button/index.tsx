@@ -18,6 +18,5 @@ export const AddTocartButton = styled.button`
 
   &:hover{
     background-color: ${({ theme }) => lighten(.2, theme.colors.orange)};
-
   }
 `;
