@@ -26,6 +26,7 @@ export const GlobalStyles = createGlobalStyle`
     body{
         color: ${({ theme }) => theme.font.primary};
         font-family: 'Kumbh Sans', sans-serif;
+        background-color: ${({ theme }) => theme.colors.primaryBg};
     }
 
     button{

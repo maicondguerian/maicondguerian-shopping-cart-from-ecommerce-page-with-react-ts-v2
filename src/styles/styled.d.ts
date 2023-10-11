@@ -11,6 +11,7 @@ declare module "styled-components" {
             blackWith75OpacityForLightboxBackground: string;
             orange: string;
             PaleOrange: string,
+            primaryBg: string
         },
         font: {
             primary: string;
@@ -22,6 +23,7 @@ declare module "styled-components" {
             lg: string;
             xl: string;
             xxl: string;
+            xxxl: string;
         }
     }
 }

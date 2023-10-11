@@ -1,6 +1,6 @@
 import { GlobalStyles } from "./global-styles";
-import * as Styled from "./styled-components";
-import { LightTheme } from "./themes";
+import * as Styled from "@/src/styles/styled-components";
+import { LightTheme } from "@/src/styles/themes";
 
 export {
     GlobalStyles,

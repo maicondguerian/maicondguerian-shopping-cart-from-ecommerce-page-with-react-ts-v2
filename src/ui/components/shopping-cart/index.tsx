@@ -2,7 +2,7 @@ import { BsCart2 } from "react-icons/bs";
 import { Styled } from "@styles/";
 
 export interface ShoppingCartProps {
-    onClick: () => void;
+    onClick?: () => void;
     isCartEmpty: boolean;
 
 }

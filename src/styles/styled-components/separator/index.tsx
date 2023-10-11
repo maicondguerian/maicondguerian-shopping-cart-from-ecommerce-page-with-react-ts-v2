@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { SeparatorProps } from "../../../ui/components/separador";
+import { SeparatorProps } from "@ui/separador";
 
 export const CenteredSeparatorContainer = styled.div`
     display: flex;
     justify-content: center;
+    margin-bottom: calc(${({ theme }) => theme.spacing.md} + ${({ theme }) => theme.spacing.xxl});
 `;
 
 type StyledSeparatorProps = Pick<SeparatorProps, "width">
@@ -14,5 +15,4 @@ export const Separator = styled.hr<StyledSeparatorProps>`
     border: transparent;
     opacity: .3;
     width: ${(props) => (props.width ? props.width : "100%")};
-
 `;
