@@ -15,6 +15,11 @@ button{
     height: 100%; 
     width: ${({ theme }) => theme.spacing.xxl};
     color: ${({ theme }) => theme.colors.orange};
+    box-shadow:  none;
+    
+    &:hover{
+        background-color: unset;
+    }
 }
 
 span{

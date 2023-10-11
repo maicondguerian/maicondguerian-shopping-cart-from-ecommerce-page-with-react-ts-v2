@@ -19,7 +19,8 @@ type AddToCartButtomProps = {
     icon: React.ElementType;
     size?: number;
     color?: string;
+    name?: string;
 }
-export function AddToCartButtom({ OnClick, icon: Icon, size, color }: AddToCartButtomProps) {
-    return <Styled.Cart onClick={OnClick}>{Icon ? <Icon size={size} color={color} /> : <></>}</Styled.Cart>;
+export function AddToCartButtom({ OnClick, icon: Icon, size, color, name }: AddToCartButtomProps) {
+    return <Styled.AddTocartButton onClick={OnClick}>{Icon ? <Icon size={size} color={color} /> : <></>}{name}</Styled.AddTocartButton>;
 }

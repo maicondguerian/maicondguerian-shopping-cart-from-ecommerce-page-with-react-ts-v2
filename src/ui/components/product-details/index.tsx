@@ -2,7 +2,7 @@ import PRODUCT from "@/product.json";
 import { Styled } from "@/src/styles";
 import { AddToCartButtom, QuantityCounterButton } from "../quantity-counter-button";
 import { BsCart2 } from "react-icons/bs";
-import ShoppingCart from "../shopping-cart";
+import { PriceFormatter } from "@/src/data/utils/price-formatter";
 
 export default function ProductDetails() {
     return (
@@ -10,18 +10,14 @@ export default function ProductDetails() {
             <span>{PRODUCT.brand}</span>
             <h1>{PRODUCT.title}</h1>
             <p>{PRODUCT.description}</p>
-            <ul>
-                <span>{PRODUCT.brand}</span>
-                <li>{PRODUCT.price}</li>
-                <li>{PRODUCT.price * 2}</li>
-            </ul>
+            <div>
+                <p>{PriceFormatter.format(PRODUCT.price)}</p>
+                <p>50%</p>
+            </div>
+            <span>{PriceFormatter.format(PRODUCT.price * 2)}</span>
             <ul>
                 <li><QuantityCounterButton /></li>
-                <li><AddToCartButtom icon={BsCart2} /></li>
-                <li><ShoppingCart
-                    isCartEmpty={true}
-                />
-                </li>
+                <li><AddToCartButtom icon={BsCart2} size={22} name={"Add to cart"} /></li>
             </ul>
         </Styled.ProductWrapper >
     );
