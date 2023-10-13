@@ -1,3 +1,4 @@
+import { ProductCarrousekImageComponent } from "@/src/ui/components/thumbnail-image-carrousel";
 import ProductDetails from "@ui/product-details";
 
 export default function Colections() {
@@ -9,7 +10,7 @@ export default function Colections() {
     };
     return (
         <div style={styledPage}>
-            <ProductDetails />
+            <ProductCarrousekImageComponent />
             <ProductDetails />
         </div>
     );
