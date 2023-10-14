@@ -9,13 +9,10 @@ import productFullSize1 from "@/public/assets/image-product-1.jpg";
 import productFullSize2 from "@/public/assets/image-product-2.jpg";
 import productFullSize3 from "@/public/assets/image-product-3.jpg";
 import productFullSize4 from "@/public/assets/image-product-4.jpg";
+import { Styled } from "@/src/styles";
 
 export function ProductCarrousekImageComponent() {
     const [selectedImage, setSelectedImage] = React.useState(0);
-
-    const handleSelectedImage = (id: React.SetStateAction<number>) => {
-        setSelectedImage(id);
-    };
 
     const galleryImages = [
         {
@@ -41,15 +38,25 @@ export function ProductCarrousekImageComponent() {
     ];
 
     return (
-        <div style={{ display: "flex" }}>
-            <section style={{ display: "flex", flexDirection: "column" }}>
-                {galleryImages.map((image, index) => (
-                    <ImageRenderer key={index} path={image.thumbnailImage} width={100} onClick={() => handleSelectedImage(image.id)} style={{ margin: " 0  10px 10px" }} />
+        <Styled.ProductImageGalleryWrapper>
+            <section>
+                {galleryImages.map((image) => (
+                    <ImageRenderer
+                        key={image.id}
+                        path={image.thumbnailImage}
+                        width={100}
+                        onClick={() => setSelectedImage(image.id)}
+                        className={image.id === selectedImage ? 'currentImage' : 'none'}
+                    />
                 ))}
             </section>
             <section>
-                <ImageRenderer path={selectedImage === 0 ? galleryImages[0].fullSizedImage : galleryImages.find((item) => item.id === selectedImage)?.fullSizedImage} width={430} />
+                <ImageRenderer
+                    path={selectedImage === 0 ? galleryImages[0].fullSizedImage
+                        : galleryImages.find((item) => item.id === selectedImage)?.fullSizedImage}
+                    width={430}
+                />
             </section>
-        </div>
+        </Styled.ProductImageGalleryWrapper>
     );
 }

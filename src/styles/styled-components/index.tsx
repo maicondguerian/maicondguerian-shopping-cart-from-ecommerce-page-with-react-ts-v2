@@ -6,3 +6,4 @@ export { Cart, CartBadge } from "./shopping-cart";
 export { ProductWrapper } from "./product-details";
 export { QuantityButtonWrapper } from "./quantity-counter-button";
 export { AddTocartButton } from "./add-to-cart-button";
+export { ProductImageGalleryWrapper } from "./product-image-gallery";

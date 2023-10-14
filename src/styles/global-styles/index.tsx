@@ -29,7 +29,9 @@ export const GlobalStyles = createGlobalStyle`
         background-color: ${({ theme }) => theme.colors.primaryBg};
     }
 
-    button{
+    button,
+    img
+    {
         cursor: pointer;
     }
     
