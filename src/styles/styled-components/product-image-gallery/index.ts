@@ -6,17 +6,20 @@ export const ProductImageGalleryWrapper = styled.div`
     section:first-of-type{
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
         img{
             margin: 0 10px 10px;
-
             &:hover{
               opacity: .6;
             }
         }
         .currentImage{
-            opacity: .6;
-            border: 3px solid ${({ theme }) => theme.colors.orange}; opacity: 1;
+            img{
+                opacity: .6;
+            }
+            border: solid 3px ${({ theme }) => theme.colors.orange};
         }
     }
 `;

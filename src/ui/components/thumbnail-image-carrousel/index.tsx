@@ -46,7 +46,7 @@ export function ProductCarrousekImageComponent() {
                         path={image.thumbnailImage}
                         width={100}
                         onClick={() => setSelectedImage(image.id)}
-                        className={image.id === selectedImage ? 'currentImage' : 'none'}
+                        className={image.id === selectedImage ? "currentImage" : "none"}
                     />
                 ))}
             </section>
