@@ -1,3 +1,4 @@
+import { darken } from "polished";
 import styled from "styled-components";
 
 export const ProductImageGalleryWrapper = styled.div`
@@ -14,16 +15,13 @@ export const ProductImageGalleryWrapper = styled.div`
         margin-right: ${({ theme }) => theme.spacing.sm};
 
         img{
-            object-fit: cover;
             &:hover{
               opacity: .6;
             }
         }
         .currentImage{
-            img{
-                opacity: .6;
-            }
-            border: solid 3px ${({ theme }) => theme.colors.orange};
+            opacity: .6;
+            border: solid 3px ${({ theme }) => darken(.3, theme.colors.orange)};;
         }
     }
 `;
