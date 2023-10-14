@@ -2,15 +2,19 @@ import styled from "styled-components";
 
 export const ProductImageGalleryWrapper = styled.div`
     display: flex;
+    height: 425px;
+    overflow-y: hidden;
 
     section:first-of-type{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap:${({ theme }) => theme.spacing.sm};
+        margin-right: ${({ theme }) => theme.spacing.sm};
 
         img{
-            margin: 0 10px 10px;
+            object-fit: cover;
             &:hover{
               opacity: .6;
             }

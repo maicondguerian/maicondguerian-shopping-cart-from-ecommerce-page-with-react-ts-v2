@@ -3,10 +3,10 @@ import ProductDetails from "@ui/product-details";
 
 export default function Colections() {
     const styledPage = {
+        margin: " 0 200px",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-evenly",
         alignItems: "center",
-        gap: "5rem",
     };
     return (
         <div style={styledPage}>

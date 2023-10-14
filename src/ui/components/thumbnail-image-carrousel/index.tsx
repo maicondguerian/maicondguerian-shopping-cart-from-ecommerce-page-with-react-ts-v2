@@ -54,7 +54,7 @@ export function ProductCarrousekImageComponent() {
                 <ImageRenderer
                     path={selectedImage === 0 ? galleryImages[0].fullSizedImage
                         : galleryImages.find((item) => item.id === selectedImage)?.fullSizedImage}
-                    width={430}
+                    width={435}
                 />
             </section>
         </Styled.ProductImageGalleryWrapper>
