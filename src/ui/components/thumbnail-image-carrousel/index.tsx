@@ -36,6 +36,7 @@ export function ProductCarrousekImageComponent() {
             thumbnailImage: thumbnail4
         },
     ];
+    console.log(galleryImages.find((item) => item.id === selectedImage)?.fullSizedImage);
 
     return (
         <Styled.ProductImageGalleryWrapper>
@@ -44,7 +45,7 @@ export function ProductCarrousekImageComponent() {
                     <ImageRenderer
                         key={image.id}
                         path={image.thumbnailImage}
-                        width={100}
+                        width={103}
                         onClick={() => setSelectedImage(image.id)}
                         className={image.id === selectedImage ? "currentImage" : "none"}
                     />
