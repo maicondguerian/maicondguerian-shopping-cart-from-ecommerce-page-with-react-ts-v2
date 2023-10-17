@@ -21,8 +21,5 @@ export const AddTocartButton = styled.button<AddToCartButtonProps>`
   &:hover{
     background-color: ${({ theme }) => lighten(.2, theme.colors.orange)};
   }
-  /* svg:hover{
-    color: ${props => (props.color ? props.color : props.theme.colors.orange)};
-  } */
 `;
 

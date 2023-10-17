@@ -1,5 +1,6 @@
 
 import { AddToCartButtomProps } from "@/src/ui/components/quantity-counter-button";
+import { darken } from "polished";
 import styled from "styled-components";
 
 export const Modal = styled.div`
@@ -8,7 +9,7 @@ export const Modal = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0,.4);
+    background-color: rgba(0, 0, 0,.5);
 
     >div {
         display: flex;
@@ -24,17 +25,26 @@ export const Modal = styled.div`
         }
 
         section:first-of-type{
-            button:first-of-type{
+            button:nth-child(2){
                 position: absolute;
                 left: -30px;
                 top: 50%;
                 transform: translateY(-50%);
             }
-            button:last-of-type{
+            button:nth-child(3){
                 position: absolute;
                 right: -30px;
                 top: 50%;
                 transform: translateY(-50%);
+            }
+            button:nth-child(4){
+                position: absolute;
+                right: -30px;
+                top: -70px;
+                background-color: transparent;
+                width: unset;
+                height: unset;
+                border-radius: unset;
             }
         }
         section:last-of-type{
@@ -43,17 +53,22 @@ export const Modal = styled.div`
         }
     }
 
-
+    .currentImage{
+            opacity: .6;
+            border: solid 3px ${({ theme }) => darken(.1, theme.colors.orange)};;
+        }
 `;
 
 type ImageChangerButtonProps = Pick<AddToCartButtomProps, "color">
 export const ImageChangerButton = styled.button<ImageChangerButtonProps>`
-     width: 60px;
-    height: 60px;
+    width: calc(${({ theme }) => theme.spacing.xxl} - 4px);
+    height: calc(${({ theme }) => theme.spacing.xxl} - 4px);
+    background-color: ${({ theme }) => theme.colors.white}; 
     border-radius: 50%;
-    box-shadow: none;
-    background-color: white; 
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     svg:hover{
     color: ${({ theme }) => theme.colors.orange};
