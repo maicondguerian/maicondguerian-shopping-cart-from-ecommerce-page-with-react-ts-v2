@@ -3,14 +3,15 @@ import { ImageRenderer } from "@ui/image-renderer";
 import { galleryImages } from "./gallery-images";
 import { Styled } from "@/src/styles";
 import { FullsizeImageModal } from "./gallery-imeges-modal";
+import ReactImageMagnify from "react-image-magnify";
 
 export function ProductCarrousekImageComponent() {
-    const [selectedImage, setSelectedImage] = React.useState(1);
+    const [selectedImage, setSelectedImage] = React.useState<null | number>(null);
     const [openModal, setOpenModal] = React.useState(false);
 
     return (
         <>
-            <Styled.ProductImageGalleryWrapper>
+            <Styled.ProductImageGalleryWrapper openModal={openModal}>
                 <section>
                     {galleryImages.map((image) => (
                         <ImageRenderer
@@ -22,13 +23,27 @@ export function ProductCarrousekImageComponent() {
                         />
                     ))}
                 </section>
-                <section>
+                {/* <section>
                     <ImageRenderer
                         path={selectedImage === 0 ? galleryImages[0].fullSizedImage
                             : galleryImages.find((item) => item.id === selectedImage)?.fullSizedImage}
                         width={435}
                         onClick={() => setOpenModal(!openModal)}
                     />
+                </section> */}
+                <section onClick={() => setOpenModal(!openModal)}>
+                    <ReactImageMagnify {...{
+                        smallImage: {
+                            isFluidWidth: true,
+                            alt: "gallery-images",
+                            src: selectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((element) => element.id === selectedImage)?.fullSizedImage,
+                        },
+                        largeImage: {
+                            src: selectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((element) => element.id === selectedImage)?.fullSizedImage,
+                            height: 1200,
+                            width: 1200
+                        }
+                    }} />
                 </section>
             </Styled.ProductImageGalleryWrapper>
             <FullsizeImageModal

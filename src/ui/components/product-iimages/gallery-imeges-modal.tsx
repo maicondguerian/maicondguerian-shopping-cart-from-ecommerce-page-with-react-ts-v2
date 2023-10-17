@@ -6,9 +6,9 @@ import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
 
 type FullsizeImageModalProps = {
-    getSelectedImage: number
-    getSetSelectImage: React.Dispatch<React.SetStateAction<number>>
-    isOpen: boolean
+    getSelectedImage: number | null;
+    getSetSelectImage: React.Dispatch<React.SetStateAction<number | null>>
+    isOpen: boolean;
     getCloseModalFunciton: React.Dispatch<React.SetStateAction<boolean>>
 }
 
@@ -22,7 +22,7 @@ export function FullsizeImageModal({
     function nextImage() {
         if (getSelectedImage === galleryImages.length) {
             getSetSelectImage(1);
-        } else {
+        } else if (getSelectedImage !== null) {
             getSetSelectImage(getSelectedImage + 1);
         }
     }
@@ -30,17 +30,18 @@ export function FullsizeImageModal({
     function prevImage() {
         if (getSelectedImage === 1) {
             getSetSelectImage(galleryImages.length);
-        } else {
+        } else if (getSelectedImage !== null) {
             getSetSelectImage(getSelectedImage - 1);
         }
     }
+
     return (
         isOpen && (
             <Styled.Modal>
                 <div>
                     <section>
                         <ImageRenderer
-                            path={galleryImages.find((image) => image.id === getSelectedImage)?.fullSizedImage}
+                            path={getSelectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((image) => image.id === getSelectedImage)?.fullSizedImage}
                             width={550}
                         />
                         <ChangeImageButtom
@@ -56,7 +57,6 @@ export function FullsizeImageModal({
                         <ChangeImageButtom
                             icon={IoCloseSharp}
                             size={40}
-                            color="#fff"
                             OnClick={() => getCloseModalFunciton(false)}
                         />
                     </section>

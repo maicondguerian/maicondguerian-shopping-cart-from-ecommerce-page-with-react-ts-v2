@@ -1,8 +1,11 @@
 import { darken } from "polished";
 import styled from "styled-components";
 
-export const ProductImageGalleryWrapper = styled.div`
-    display:grid;
+type ProductImageGalleryWrapper = {
+    openModal: boolean
+}
+export const ProductImageGalleryWrapper = styled.div<ProductImageGalleryWrapper>`
+    display: ${props => props.openModal ? "grid" : "grid"};
     grid-template-columns:100px 1fr;
     grid-gap: calc(${({ theme }) => theme.spacing.sm} + 1px);
     
@@ -21,4 +24,10 @@ export const ProductImageGalleryWrapper = styled.div`
             border: solid 3px ${({ theme }) => darken(.1, theme.colors.orange)};;
         }
     }
+
+    section:last-of-type{
+        width: 435px;
+    }
 `;
+
+ProductImageGalleryWrapper.shouldForwardProp = (prop) => prop !== "openModal";

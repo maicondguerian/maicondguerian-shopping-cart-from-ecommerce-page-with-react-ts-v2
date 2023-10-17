@@ -8,3 +8,4 @@ export { QuantityButtonWrapper } from "./quantity-counter-button";
 export { AddTocartButton } from "./add-to-cart-button";
 export { ProductImageGalleryWrapper } from "./product-image-gallery";
 export { Modal, ImageChangerButton } from "./full-sized-image-modal";
+export { CheckoutWrapper } from "./cart-check-out";

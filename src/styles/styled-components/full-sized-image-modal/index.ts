@@ -9,7 +9,7 @@ export const Modal = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0,.5);
+    background-color: rgba(0, 0, 0,.4);
 
     >div {
         display: flex;
@@ -40,16 +40,23 @@ export const Modal = styled.div`
             button:nth-child(4){
                 position: absolute;
                 right: -30px;
-                top: -70px;
+                top: -50px;
                 background-color: transparent;
                 width: unset;
                 height: unset;
                 border-radius: unset;
+                color: ${({ theme }) => theme.colors.white};
             }
         }
         section:last-of-type{
           display: flex;
           gap: .5rem;
+
+          img{
+            &:hover{
+                opacity: .6;
+            }
+          }
         }
     }
 
