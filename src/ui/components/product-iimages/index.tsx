@@ -10,7 +10,7 @@ export function ProductCarrousekImageComponent() {
 
     return (
         <>
-            <Styled.ProductImageGalleryWrapper>
+            <Styled.ProductImageGalleryWrapper openModal={openModal}>
                 <section>
                     {galleryImages.map((image) => (
                         <ImageRenderer
