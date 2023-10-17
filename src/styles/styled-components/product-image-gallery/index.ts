@@ -18,7 +18,7 @@ export const ProductImageGalleryWrapper = styled.div`
 
         .currentImage{
             opacity: .6;
-            border: solid 3px ${({ theme }) => darken(.3, theme.colors.orange)};;
+            border: solid 3px ${({ theme }) => darken(.1, theme.colors.orange)};;
         }
     }
 `;

@@ -13,7 +13,7 @@ export function QuantityCounterButton() {
     );
 }
 
-type AddToCartButtomProps = {
+export type AddToCartButtomProps = {
     OnClick?: () => void,
     icon: React.ElementType;
     size?: number;
