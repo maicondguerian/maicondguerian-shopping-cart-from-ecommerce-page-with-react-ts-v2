@@ -24,10 +24,6 @@ export const ProductImageGalleryWrapper = styled.div<ProductImageGalleryWrapper>
             border: solid 3px ${({ theme }) => darken(.1, theme.colors.orange)};;
         }
     }
-
-    section:last-of-type{
-        width: 435px;
-    }
 `;
 
 ProductImageGalleryWrapper.shouldForwardProp = (prop) => prop !== "openModal";

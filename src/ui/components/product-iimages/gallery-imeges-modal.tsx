@@ -4,6 +4,7 @@ import { galleryImages } from "./gallery-images";
 import { AddToCartButtomProps } from "../quantity-counter-button";
 import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
+import { useEffect } from "react";
 
 type FullsizeImageModalProps = {
     getSelectedImage: number | null;
@@ -20,7 +21,7 @@ export function FullsizeImageModal({
     : FullsizeImageModalProps) {
 
     function nextImage() {
-        if (getSelectedImage === galleryImages.length) {
+        if (getSelectedImage === galleryImages.length || getSelectedImage === null) {
             getSetSelectImage(1);
         } else if (getSelectedImage !== null) {
             getSetSelectImage(getSelectedImage + 1);
@@ -34,6 +35,10 @@ export function FullsizeImageModal({
             getSetSelectImage(getSelectedImage - 1);
         }
     }
+
+    useEffect(() => {
+        nextImage();
+    }, []);
 
     return (
         isOpen && (

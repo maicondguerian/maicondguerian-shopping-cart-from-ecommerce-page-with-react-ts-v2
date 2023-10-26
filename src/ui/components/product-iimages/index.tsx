@@ -23,18 +23,12 @@ export function ProductCarrousekImageComponent() {
                         />
                     ))}
                 </section>
-                {/* <section>
-                    <ImageRenderer
-                        path={selectedImage === 0 ? galleryImages[0].fullSizedImage
-                            : galleryImages.find((item) => item.id === selectedImage)?.fullSizedImage}
-                        width={435}
-                        onClick={() => setOpenModal(!openModal)}
-                    />
-                </section> */}
                 <section onClick={() => setOpenModal(!openModal)}>
                     <ReactImageMagnify {...{
                         smallImage: {
-                            isFluidWidth: true,
+                            width: 430,
+                            height: 430,
+                            isFluidWidth: false,
                             alt: "gallery-images",
                             src: selectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((element) => element.id === selectedImage)?.fullSizedImage,
                         },
