@@ -7,8 +7,7 @@ import { useItemQuantity2 } from "../contexts/use-item-quantity";
 type Product = {
     id: number
     quantity: number
-    title: string
-    price: number | string
+
 }
 
 export default function useShoppingCart() {
@@ -36,9 +35,6 @@ export default function useShoppingCart() {
     }
 
     const cartQuantity = productCartList.reduce((total, item) => total + item.quantity, 0);
-    console.log(cartQuantity);
-
-    console.log(productCartList);
     return {
         addProductToCart,
         cartQuantity
