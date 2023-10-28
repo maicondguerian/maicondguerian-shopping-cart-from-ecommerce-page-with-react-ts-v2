@@ -5,7 +5,7 @@ import usePath from "@src/data/custom-hooks/usePath";
 import { ImageRenderer } from "@ui/image-renderer";
 import avatar from "@/public/assets/image-avatar.png";
 import logo from "@/public/assets/logo.svg";
-import ShoppingCart from "@ui/shopping-cart";
+import ShoppingCart from "@/src/ui/components/cart-buttom";
 
 export default function Header() {
     const { isCurrentPath } = usePath();
@@ -37,7 +37,6 @@ export default function Header() {
                     <li>
                         <ShoppingCart
                             isCartEmpty={count < 1}
-                            onClick={() => console.log("click")}
                         />
                     </li>
                     <li>

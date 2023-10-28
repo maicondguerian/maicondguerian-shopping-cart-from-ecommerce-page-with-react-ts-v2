@@ -1,7 +1,7 @@
 import Separator from "@ui/separador";
-import { ImageRenderer } from "../image-renderer";
-import { galleryImages } from "@ui/product-iimages/gallery-images";
-import { AddToCartButtom } from "../quantity-counter-button";
+// import { ImageRenderer } from "../image-renderer";
+// import { galleryImages } from "@ui/product-iimages/gallery-images";
+// import { AddToCartButtom } from "../quantity-counter-button";
 import { Styled } from "@/src/styles";
 
 export function CartCheckout() {

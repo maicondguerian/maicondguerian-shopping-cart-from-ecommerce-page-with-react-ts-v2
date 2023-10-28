@@ -40,30 +40,42 @@ export function FullsizeImageModal({
         nextImage();
     }, []);
 
+    const buttonsData = [
+        {
+            icon: MdOutlineNavigateBefore,
+            size: 45,
+            onClick: prevImage,
+        },
+        {
+            icon: MdOutlineNavigateNext,
+            size: 45,
+            onClick: nextImage,
+        },
+        {
+            icon: IoCloseSharp,
+            size: 40,
+            onClick: () => getCloseModalFunciton(false),
+        },
+    ];
+
     return (
         isOpen && (
             <Styled.Modal>
                 <div>
                     <section>
                         <ImageRenderer
-                            path={getSelectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((image) => image.id === getSelectedImage)?.fullSizedImage}
+                            path={getSelectedImage === null ? galleryImages[0].fullSizedImage :
+                                galleryImages.find((image) => image.id === getSelectedImage)?.fullSizedImage}
                             width={550}
                         />
-                        <ChangeImageButtom
-                            icon={MdOutlineNavigateBefore}
-                            size={45}
-                            OnClick={prevImage}
-                        />
-                        <ChangeImageButtom
-                            icon={MdOutlineNavigateNext}
-                            size={45}
-                            OnClick={nextImage}
-                        />
-                        <ChangeImageButtom
-                            icon={IoCloseSharp}
-                            size={40}
-                            OnClick={() => getCloseModalFunciton(false)}
-                        />
+                        {buttonsData.map((button, i) => (
+                            <ChangeImageButtom
+                                icon={button.icon}
+                                OnClick={button.onClick}
+                                size={button.size}
+                                key={i}
+                            />
+                        ))}
                     </section>
                     <section>
                         {galleryImages.map((image) => (
@@ -77,14 +89,14 @@ export function FullsizeImageModal({
                         ))}
                     </section>
                 </div>
-            </Styled.Modal >
+            </Styled.Modal>
         )
     );
 }
 
-type ChangeImageButtomProps = Pick<AddToCartButtomProps, "OnClick" | "color" | "icon" | "size">
+type ChangeImageButtomProps = Omit<AddToCartButtomProps, "name">;
 
-function ChangeImageButtom({ icon: Icon, OnClick, color, size }: ChangeImageButtomProps) {
+function ChangeImageButtom({ icon: Icon, OnClick, color, size, }: ChangeImageButtomProps) {
     return (<Styled.ImageChangerButton onClick={OnClick}> {Icon ? <Icon size={size} color={color} /> : <></>} </Styled.ImageChangerButton>
 
     );
