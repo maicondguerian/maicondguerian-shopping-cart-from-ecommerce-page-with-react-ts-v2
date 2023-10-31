@@ -1,6 +1,6 @@
 import { BsCart2 } from "react-icons/bs";
 import { Styled } from "@styles/";
-import useShoppingCart from "@/src/data/custom-hooks/useAddProductToCart";
+import { useCart } from "@/src/data/contexts/cartContext";
 
 export interface ShoppingCartProps {
     onClick?: () => void;
@@ -8,13 +8,13 @@ export interface ShoppingCartProps {
 
 }
 export default function ShoppingCart({ onClick, isCartEmpty }: ShoppingCartProps) {
-    const { cartQuantity } = useShoppingCart();
+    const context = useCart();
 
     return (
         <Styled.Cart onClick={onClick}>
             <BsCart2 size={25} />
             {!isCartEmpty && (
-                <Styled.CartBadge isCartEmpty={isCartEmpty}>{cartQuantity}</Styled.CartBadge>
+                <Styled.CartBadge isCartEmpty={isCartEmpty}>{context.cartQuantity}</Styled.CartBadge>
             )}
         </Styled.Cart>
     );

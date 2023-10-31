@@ -1,14 +1,14 @@
-import { useItemQuantity2 } from "@/src/data/contexts/use-item-quantity";
+import { useCart } from "@/src/data/contexts/cartContext";
 import { Styled } from "@/src/styles";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
 export function QuantityCounterButton() {
-    const { quantity, incrementItemQuantity, decrementItemQuantity } = useItemQuantity2();
+    const { itemQuantity, incrementItemQuantity, decrementItemQuantity } = useCart();
 
     return (
         <Styled.QuantityButtonWrapper>
             <AddToCartButtom icon={FaMinus} OnClick={decrementItemQuantity} />
-            <span>{quantity}</span>
+            <span>{itemQuantity}</span>
             <AddToCartButtom icon={FaPlus} OnClick={incrementItemQuantity} />
         </Styled.QuantityButtonWrapper>
     );

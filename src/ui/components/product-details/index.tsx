@@ -3,10 +3,10 @@ import { Styled } from "@/src/styles";
 import { AddToCartButtom, QuantityCounterButton } from "../quantity-counter-button";
 import { BsCart2 } from "react-icons/bs";
 import { PriceFormatter } from "@/src/data/utils/price-formatter";
-import useShoppingCart from "@/src/data/custom-hooks/useAddProductToCart";
+import { useCart } from "@/src/data/contexts/cartContext";
 
 export default function ProductDetails() {
-    const { addProductToCart } = useShoppingCart();
+    const context = useCart();
     return (
         <Styled.ProductWrapper>
             <span>{PRODUCT.brand}</span>
@@ -24,10 +24,11 @@ export default function ProductDetails() {
                         icon={BsCart2}
                         size={22}
                         name={"Add to cart"}
-                        OnClick={() => addProductToCart()}
+                        OnClick={context.addProductToCart}
                     />
                 </li>
             </ul>
+            {context.cartQuantity !== 0 ? JSON.stringify(context.productCartList) : null}
         </Styled.ProductWrapper >
     );
 }

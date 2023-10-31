@@ -6,14 +6,11 @@ import { ImageRenderer } from "@ui/image-renderer";
 import avatar from "@/public/assets/image-avatar.png";
 import logo from "@/public/assets/logo.svg";
 import ShoppingCart from "@/src/ui/components/cart-buttom";
-import useShoppingCart from "@/src/data/custom-hooks/useAddProductToCart";
+import { useCart } from "@/src/data/contexts/cartContext";
 
 export default function Header() {
     const { isCurrentPath } = usePath();
-    const { cartQuantity } = useShoppingCart();
-    console.log(cartQuantity);
-
-    const count = 2;
+    const context = useCart();
 
     return (
         <>
@@ -39,7 +36,7 @@ export default function Header() {
                 <ul>
                     <li>
                         <ShoppingCart
-                            isCartEmpty={count < 1}
+                            isCartEmpty={context.cartQuantity < 1}
                         />
                     </li>
                     <li>
