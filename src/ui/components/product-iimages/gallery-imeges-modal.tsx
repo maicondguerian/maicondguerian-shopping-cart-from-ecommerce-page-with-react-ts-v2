@@ -71,7 +71,7 @@ export function FullsizeImageModal({
                         {buttonsData.map((button, i) => (
                             <ChangeImageButtom
                                 icon={button.icon}
-                                OnClick={button.onClick}
+                                onClick={button.onClick}
                                 size={button.size}
                                 key={i}
                             />
@@ -84,7 +84,7 @@ export function FullsizeImageModal({
                                 key={image.id}
                                 width={110}
                                 onClick={() => getSetSelectImage(image.id)}
-                                className={image.id === getSelectedImage ? "currentImage" : "none"}
+                                className={image.id === getSelectedImage ? "currentImage" : ""}
                             />
                         ))}
                     </section>
@@ -96,8 +96,8 @@ export function FullsizeImageModal({
 
 type ChangeImageButtomProps = Omit<AddToCartButtomProps, "name">;
 
-function ChangeImageButtom({ icon: Icon, OnClick, color, size, }: ChangeImageButtomProps) {
-    return (<Styled.ImageChangerButton onClick={OnClick}> {Icon ? <Icon size={size} color={color} /> : <></>} </Styled.ImageChangerButton>
+function ChangeImageButtom({ icon: Icon, onClick, color, size, }: ChangeImageButtomProps) {
+    return (<Styled.ImageChangerButton onClick={onClick}> {Icon ? <Icon size={size} color={color} /> : <></>} </Styled.ImageChangerButton>
 
     );
 }

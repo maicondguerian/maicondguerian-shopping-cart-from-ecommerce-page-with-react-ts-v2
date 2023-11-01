@@ -5,7 +5,7 @@ type ProductImageGalleryWrapper = {
     openModal: boolean
 }
 export const ProductImageGalleryWrapper = styled.div<ProductImageGalleryWrapper>`
-    display: ${props => props.openModal ? "none" : "grid"};
+    display: ${props => props.openModal ? "grid" : "grid"};
     grid-template-columns:100px 1fr;
     grid-gap: calc(${({ theme }) => theme.spacing.sm} + 1px);
     

@@ -21,5 +21,5 @@ export type AddToCartButtomProps = {
     name?: string;
 } & React.HtmlHTMLAttributes<HTMLButtonElement>
 export function AddToCartButtom({ onClick, icon: Icon, size, color, name, ...rest }: AddToCartButtomProps) {
-    return <Styled.AddTocartButton onClick={onClick}>{Icon ? <Icon size={size} color={color} {...rest} /> : <></>}{name}</Styled.AddTocartButton>;
+    return <Styled.AddTocartButton onClick={onClick} {...rest}>{Icon ? <Icon size={size} color={color} /> : <></>}{name}</Styled.AddTocartButton>;
 }

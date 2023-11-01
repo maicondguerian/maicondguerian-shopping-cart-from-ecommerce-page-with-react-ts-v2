@@ -49,7 +49,8 @@ export default function Header() {
                     </li>
                 </ul>
                 <CartCheckout
-                    isCheckoutCartOpen={isCurrentPath("/collections") ? context.showCheckoutCartModal : false}
+                    isCheckoutCartOpen={true}
+                    className={context.showCheckoutCartModal ? "toggleOpenCheckoutCart" : "toggleHideCheckoutCart"}
                 />
             </Styled.Navbar>
             <Separator width="70%" />

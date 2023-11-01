@@ -6,17 +6,22 @@ import { Styled } from "@/src/styles";
 
 type CartCheckoutProps = {
     isCheckoutCartOpen: boolean
+    className: string
 }
 
-export function CartCheckout({ isCheckoutCartOpen = false }: CartCheckoutProps) {
+export function CartCheckout({ isCheckoutCartOpen, className }: CartCheckoutProps) {
     return (
         <>
             {
-                isCheckoutCartOpen && (
-                    <Styled.CheckoutWrapper>
-                        d
-                    </Styled.CheckoutWrapper>
-                )
+
+                <Styled.CheckoutWrapper
+                    onClick={(event) => event.stopPropagation()}
+                    isCheckoutCartOpen={isCheckoutCartOpen}
+                    className={className}
+                >
+                    d
+                </Styled.CheckoutWrapper>
+
             }
         </>
     );
