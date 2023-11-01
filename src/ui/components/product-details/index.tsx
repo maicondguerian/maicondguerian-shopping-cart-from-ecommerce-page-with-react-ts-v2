@@ -7,6 +7,14 @@ import { useCart } from "@/src/data/contexts/cartContext";
 
 export default function ProductDetails() {
     const context = useCart();
+
+    // const objSemId = context.productCartList.map((obj) => {
+    //     const clone = { ...obj };
+    //     delete clone.id;
+
+    //     return clone;
+    // });
+
     return (
         <Styled.ProductWrapper>
             <span>{PRODUCT.brand}</span>
@@ -24,11 +32,11 @@ export default function ProductDetails() {
                         icon={BsCart2}
                         size={22}
                         name={"Add to cart"}
-                        OnClick={context.addProductToCart}
+                        onClick={context.addProductToCart}
                     />
                 </li>
             </ul>
-            {context.cartQuantity !== 0 ? JSON.stringify(context.productCartList) : null}
+            {JSON.stringify(context.productCartList)}
         </Styled.ProductWrapper >
     );
 }

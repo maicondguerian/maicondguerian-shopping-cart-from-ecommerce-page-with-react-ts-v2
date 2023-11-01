@@ -1,13 +1,12 @@
 import { Styled } from "@styles/";
-import Header from "@ui/header";
 
-interface ContainerProps {
+type ContainerProps = {
     children?: React.ReactNode;
-}
-export default function Container({ children }: ContainerProps) {
+} & React.HtmlHTMLAttributes<HTMLDivElement>
+
+export default function Container({ children, onClick, ...rest }: ContainerProps) {
     return (
-        <Styled.Container>
-            <Header />
+        <Styled.Container onClick={onClick} {...rest}>
             {children}
         </Styled.Container>
     );

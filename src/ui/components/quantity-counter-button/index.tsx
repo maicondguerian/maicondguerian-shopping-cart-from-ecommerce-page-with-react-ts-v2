@@ -7,20 +7,19 @@ export function QuantityCounterButton() {
 
     return (
         <Styled.QuantityButtonWrapper>
-            <AddToCartButtom icon={FaMinus} OnClick={decrementItemQuantity} />
+            <AddToCartButtom icon={FaMinus} onClick={decrementItemQuantity} />
             <span>{itemQuantity}</span>
-            <AddToCartButtom icon={FaPlus} OnClick={incrementItemQuantity} />
+            <AddToCartButtom icon={FaPlus} onClick={incrementItemQuantity} />
         </Styled.QuantityButtonWrapper>
     );
 }
 
 export type AddToCartButtomProps = {
-    OnClick?: () => void,
     icon: React.ElementType;
     size?: number;
     color?: string;
     name?: string;
-}
-export function AddToCartButtom({ OnClick, icon: Icon, size, color, name }: AddToCartButtomProps) {
-    return <Styled.AddTocartButton onClick={OnClick}>{Icon ? <Icon size={size} color={color} /> : <></>}{name}</Styled.AddTocartButton>;
+} & React.HtmlHTMLAttributes<HTMLButtonElement>
+export function AddToCartButtom({ onClick, icon: Icon, size, color, name, ...rest }: AddToCartButtomProps) {
+    return <Styled.AddTocartButton onClick={onClick}>{Icon ? <Icon size={size} color={color} {...rest} /> : <></>}{name}</Styled.AddTocartButton>;
 }

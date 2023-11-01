@@ -1,16 +1,23 @@
-import Separator from "@ui/separador";
+// import Separator from "@ui/separador";
 // import { ImageRenderer } from "../image-renderer";
 // import { galleryImages } from "@ui/product-iimages/gallery-images";
 // import { AddToCartButtom } from "../quantity-counter-button";
 import { Styled } from "@/src/styles";
 
-export function CartCheckout() {
+type CartCheckoutProps = {
+    isCheckoutCartOpen: boolean
+}
+
+export function CartCheckout({ isCheckoutCartOpen = false }: CartCheckoutProps) {
     return (
-        <Styled.CheckoutWrapper>
-            <div>
-                <h3>Cart</h3>
-            </div>
-            <Separator width="100%" mb="20px" />
-        </Styled.CheckoutWrapper>
+        <>
+            {
+                isCheckoutCartOpen && (
+                    <Styled.CheckoutWrapper>
+                        d
+                    </Styled.CheckoutWrapper>
+                )
+            }
+        </>
     );
 }

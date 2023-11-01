@@ -1,12 +1,12 @@
 import { BsCart2 } from "react-icons/bs";
 import { Styled } from "@styles/";
 import { useCart } from "@/src/data/contexts/cartContext";
+import { AddToCartButtomProps } from "../quantity-counter-button";
 
-export interface ShoppingCartProps {
-    onClick?: () => void;
+export type ShoppingCartProps = {
     isCartEmpty: boolean;
+} & Pick<AddToCartButtomProps, "onClick">
 
-}
 export default function ShoppingCart({ onClick, isCartEmpty }: ShoppingCartProps) {
     const context = useCart();
 

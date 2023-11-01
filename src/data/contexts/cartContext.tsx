@@ -9,6 +9,8 @@ type CartContextProps = {
     addProductToCart: () => void
     cartQuantity: number
     productCartList: Array<object>
+    showCheckoutCartModal: boolean
+    setShowCheckoutCartModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 export const CartContext = React.createContext({} as CartContextProps);
 
@@ -25,25 +27,28 @@ type Product = {
 export function CartProvider({ children }: CartProviderProps) {
     const [itemQuantity, setItemQuantity] = React.useState(0);
     const [productCartList, setProductCartList] = React.useState<Product[]>([]);
-    const productIndex = productCartList.findIndex((element) => element.id === PRODUCT.id);
-    console.log(PRODUCT.price);
-    function addProductToCart() {
+    const [showCheckoutCartModal, setShowCheckoutCartModal] = React.useState(false);
 
-        if (productIndex >= 0) {
+    function addProductToCart() {
+        const { title, id } = PRODUCT;
+        const productIndex = productCartList.findIndex((element) => element.id === PRODUCT.id);
+        if (productIndex >= 0 && itemQuantity !== 0) {
             const uptatedProductCart = [...productCartList];
             uptatedProductCart[productIndex] = {
                 ...uptatedProductCart[productIndex],
-                quantity: uptatedProductCart[productIndex].quantity + itemQuantity,
-                price: uptatedProductCart[productIndex].price + PRODUCT.price
+                quantity: uptatedProductCart[productIndex]?.quantity + itemQuantity,
+                price: uptatedProductCart[productIndex]?.price + (PRODUCT.price * itemQuantity)
             };
             setProductCartList(uptatedProductCart);
-        } else {
+        }
+        else if (productIndex <= 0 && itemQuantity !== 0) {
             setProductCartList([
                 ...productCartList,
                 {
-                    ...PRODUCT,
+                    id,
+                    title,
                     quantity: itemQuantity,
-                    price: PRODUCT.price * 2
+                    price: (PRODUCT.price * itemQuantity)
                 }
             ]);
         }
@@ -67,7 +72,9 @@ export function CartProvider({ children }: CartProviderProps) {
             setItemQuantity,
             addProductToCart,
             cartQuantity,
-            productCartList
+            productCartList,
+            showCheckoutCartModal,
+            setShowCheckoutCartModal
 
         }}>
             {children}
