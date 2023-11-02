@@ -41,12 +41,12 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     right: 60px;
     top: 90px;
     width: 400px;
-    height: 250px;
+    height: 240px;
     border-bottom-left-radius: ${({ theme }) => theme.spacing.sm};
     border-bottom-right-radius: ${({ theme }) => theme.spacing.sm};
     box-shadow: 0 1rem 1.625rem rgb(31 50 81 / 22%); 
     background-color: ${({ theme }) => theme.colors.primaryBg};
-
+    
     &.toggleHideCheckoutCart{
         ${fadeOutAnimation};
         display: none;
@@ -62,18 +62,19 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
         width: 100%;
         display: block;
         padding: ${({ theme }) => theme.spacing.md};
+        font-weight: 600;
     }
     
     >div:last-of-type{
-        height: 200px;
-        padding: 1rem 1rem 0;
+        height: 180px;
+        padding: 1rem;
         position: relative;
+        display: flex;
+        color: ${({ theme }) => theme.colors.darkGrayishBlue};
+                justify-content: center;
+                align-items: center;
         p{
             font-weight: 600;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
         
         >div:nth-child(1){
@@ -81,7 +82,20 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                gap: ${({ theme }) => theme.spacing.xl};
+                gap: ${({ theme }) => theme.spacing.lg};
+
+                button:nth-child(1){
+                   background-color: transparent;
+                   border-radius: unset;
+                   height: 30px;
+
+
+                   &{
+                    :hover{
+                        color: unset;
+                    }
+                   }
+                }
 
                 ul{
                     display: flex;
@@ -89,6 +103,9 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
                     gap: 1rem;
                     li{
                         text-transform: capitalize;
+                        img{
+                            border-radius: 5px;
+                        }
                     }
     
                     >li:nth-child(2){
@@ -101,6 +118,11 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
                         align-items: flex-start;
                         li{
                             line-height: .6;
+                            word-spacing: 2px;
+                            strong{
+                                font-size: 18px;
+                                color: ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground};
+                            }
                         }
                     }
                 }

@@ -1,12 +1,12 @@
 import Separator from "@ui/separador";
 import { ImageRenderer } from "../image-renderer";
-// import { galleryImages } from "@ui/product-iimages/gallery-images";
 import { AddToCartButtom } from "../quantity-counter-button";
 import { useCart } from "@/src/data/contexts/cartContext";
 import { Styled } from "@/src/styles";
 import { galleryImages } from "../product-iimages/gallery-images";
 import { PriceFormatter } from "@/src/data/utils/price-formatter";
-// import { galleryImages } from "../product-iimages/gallery-images";
+import { PiTrashDuotone } from "react-icons/pi";
+import { ChangeImageButtom as TrashButtom } from "../product-iimages/gallery-imeges-modal";
 
 type CartCheckoutProps = {
     isCheckoutCartOpen: boolean
@@ -37,9 +37,9 @@ export function CartCheckout({ isCheckoutCartOpen, className }: CartCheckoutProp
                                         <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
-                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <b>{PriceFormatter.format(elem.price)}</b></li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
                                         </ul>
-                                        <li><button onClick={() => context.setProductCartList([])}>lixeira</button></li>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
                                     </ul>
                                     <AddToCartButtom
                                         name={"checkout"}

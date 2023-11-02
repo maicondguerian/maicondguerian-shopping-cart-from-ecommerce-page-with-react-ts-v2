@@ -96,7 +96,7 @@ export function FullsizeImageModal({
 
 type ChangeImageButtomProps = Omit<AddToCartButtomProps, "name">;
 
-function ChangeImageButtom({ icon: Icon, onClick, color, size, }: ChangeImageButtomProps) {
+export function ChangeImageButtom({ icon: Icon, onClick, color, size, }: ChangeImageButtomProps) {
     return (<Styled.ImageChangerButton onClick={onClick}> {Icon ? <Icon size={size} color={color} /> : <></>} </Styled.ImageChangerButton>
 
     );

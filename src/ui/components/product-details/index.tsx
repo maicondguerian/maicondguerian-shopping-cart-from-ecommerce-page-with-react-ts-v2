@@ -8,13 +8,6 @@ import { useCart } from "@/src/data/contexts/cartContext";
 export default function ProductDetails() {
     const context = useCart();
 
-    // const objSemId = context.productCartList.map((obj) => {
-    //     const clone = { ...obj };
-    //     delete clone.id;
-
-    //     return clone;
-    // });
-
     return (
         <Styled.ProductWrapper>
             <span>{PRODUCT.brand}</span>
@@ -36,7 +29,6 @@ export default function ProductDetails() {
                     />
                 </li>
             </ul>
-            {JSON.stringify(context.productCartList)}
         </Styled.ProductWrapper >
     );
 }
