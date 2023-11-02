@@ -1,6 +1,14 @@
 import * as React from "react";
 import PRODUCT from "@/product.json";
 
+type Product = {
+    id: number
+    quantity: number
+    title: string
+    price: number
+    originalPrice: number
+}
+
 type CartContextProps = {
     itemQuantity: number
     setItemQuantity: React.Dispatch<React.SetStateAction<number>>
@@ -8,7 +16,8 @@ type CartContextProps = {
     decrementItemQuantity: () => void
     addProductToCart: () => void
     cartQuantity: number
-    productCartList: Array<object>
+    productCartList: Array<Product>
+    setProductCartList: React.Dispatch<React.SetStateAction<Product[]>>
     showCheckoutCartModal: boolean
     setShowCheckoutCartModal: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -18,12 +27,6 @@ type CartProviderProps = {
     children: React.ReactNode
 }
 
-type Product = {
-    id: number
-    quantity: number
-    title: string
-    price: number
-}
 export function CartProvider({ children }: CartProviderProps) {
     const [itemQuantity, setItemQuantity] = React.useState(0);
     const [productCartList, setProductCartList] = React.useState<Product[]>([]);
@@ -37,7 +40,7 @@ export function CartProvider({ children }: CartProviderProps) {
             uptatedProductCart[productIndex] = {
                 ...uptatedProductCart[productIndex],
                 quantity: uptatedProductCart[productIndex]?.quantity + itemQuantity,
-                price: uptatedProductCart[productIndex]?.price + (PRODUCT.price * itemQuantity)
+                price: uptatedProductCart[productIndex]?.price + PRODUCT.price * itemQuantity
             };
             setProductCartList(uptatedProductCart);
         }
@@ -48,14 +51,14 @@ export function CartProvider({ children }: CartProviderProps) {
                     id,
                     title,
                     quantity: itemQuantity,
-                    price: (PRODUCT.price * itemQuantity)
+                    price: PRODUCT.price * itemQuantity,
+                    originalPrice: 125
                 }
             ]);
         }
-
         setItemQuantity(0);
     }
-
+    productCartList;
     const cartQuantity = productCartList.reduce((total, item) => total + item.quantity, 0);
 
     return (
@@ -73,6 +76,7 @@ export function CartProvider({ children }: CartProviderProps) {
             addProductToCart,
             cartQuantity,
             productCartList,
+            setProductCartList,
             showCheckoutCartModal,
             setShowCheckoutCartModal
 

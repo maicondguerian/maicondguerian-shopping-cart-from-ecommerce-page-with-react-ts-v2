@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Link } from "react-router-dom";
 import { Styled } from "@styles/";
 import Separator from "@ui/separador";
@@ -12,6 +13,18 @@ import { CartCheckout } from "../cart-check-out";
 export default function Header() {
     const { isCurrentPath } = usePath();
     const context = useCart();
+    const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
+
+    React.useEffect(() => {
+        if (context.cartQuantity !== prevCartQuantity) {
+            setPrevCartQuantity(context.cartQuantity);
+        }
+    }, [context.cartQuantity, prevCartQuantity]);
+
+    function checkCartQuantity() {
+        if (context.cartQuantity === 0) return true;
+        return context.cartQuantity > prevCartQuantity;
+    }
 
     return (
         <>
@@ -37,7 +50,7 @@ export default function Header() {
                 <ul>
                     <li>
                         <ShoppingCart
-                            isCartEmpty={context.cartQuantity < 1}
+                            isCartEmpty={checkCartQuantity()}
                             onClick={(event) => {
                                 context.setShowCheckoutCartModal((prevState) => !prevState);
                                 event.stopPropagation();

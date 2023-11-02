@@ -15,7 +15,7 @@ export function QuantityCounterButton() {
 }
 
 export type AddToCartButtomProps = {
-    icon: React.ElementType;
+    icon?: React.ElementType;
     size?: number;
     color?: string;
     name?: string;
