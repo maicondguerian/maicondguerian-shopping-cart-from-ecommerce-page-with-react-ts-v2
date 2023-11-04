@@ -5,4 +5,8 @@ export const Container = styled.main`
     flex-direction: column;
     height: 100vh;
     background-color: ${({ theme }) => theme.colors.primaryBg};
+    
+    @media screen and (max-width: 1111px) {
+        align-items: center;
+    }
 `;

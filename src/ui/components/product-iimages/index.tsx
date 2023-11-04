@@ -2,12 +2,71 @@ import * as React from "react";
 import { ImageRenderer } from "@ui/image-renderer";
 import { galleryImages } from "./gallery-images";
 import { Styled } from "@/src/styles";
-import { FullsizeImageModal } from "./gallery-imeges-modal";
+import { ChangeImageButtom, FullsizeImageModal } from "./gallery-imeges-modal";
 import ReactImageMagnify from "react-image-magnify";
+import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
+import { IoCloseSharp } from "react-icons/io5";
 
 export function ProductCarrousekImageComponent() {
     const [selectedImage, setSelectedImage] = React.useState<null | number>(null);
     const [openModal, setOpenModal] = React.useState(false);
+    const [showMobileImageDisplay, setShowMobileImageDisplay] = React.useState(false);
+
+    React.useEffect(() => {
+        function mathWindow() {
+            if (window.matchMedia("(max-width: 1111px)").matches) {
+                setShowMobileImageDisplay(true);
+            }
+            else {
+                setShowMobileImageDisplay(false);
+            }
+        }
+        mathWindow();
+        window.addEventListener("resize", mathWindow);
+
+        return () => {
+            window.removeEventListener("resize", mathWindow);
+        };
+
+    }, []);
+
+    const buttonsData = [
+        {
+            icon: MdOutlineNavigateBefore,
+            size: 45,
+            onClick: prevImage,
+        },
+        {
+            icon: MdOutlineNavigateNext,
+            size: 45,
+            onClick: nextImage,
+        },
+        {
+            icon: IoCloseSharp,
+            size: 40,
+            onClick: () => setOpenModal(false),
+        },
+    ];
+
+    function nextImage() {
+        if (selectedImage === galleryImages.length || selectedImage === null) {
+            setSelectedImage(1);
+        } else if (selectedImage !== null) {
+            setSelectedImage(selectedImage + 1);
+        }
+    }
+
+    function prevImage() {
+        if (selectedImage === 1) {
+            setSelectedImage(galleryImages.length);
+        } else if (selectedImage !== null) {
+            setSelectedImage(selectedImage - 1);
+        }
+    }
+
+    React.useEffect(() => {
+        nextImage();
+    }, []);
 
     return (
         <>
@@ -40,12 +99,40 @@ export function ProductCarrousekImageComponent() {
                     }} />
                 </section>
             </Styled.ProductImageGalleryWrapper>
-            <FullsizeImageModal
-                getSelectedImage={selectedImage}
-                getSetSelectImage={setSelectedImage}
-                isOpen={openModal}
-                getCloseModalFunciton={setOpenModal}
-            />
+            <FullsizeImageModal isOpen={openModal || showMobileImageDisplay}>
+                <Styled.Overlay>
+                    <div>
+                        <section>
+                            <ImageRenderer
+                                path={selectedImage === null ? galleryImages[0].fullSizedImage :
+                                    galleryImages.find((image) => image.id === selectedImage)?.fullSizedImage}
+                                width={550}
+                            />
+                            <div>
+                                {buttonsData.map((button, i) => (
+                                    <ChangeImageButtom
+                                        icon={button.icon}
+                                        onClick={button.onClick}
+                                        size={button.size}
+                                        key={i}
+                                    />
+                                ))}
+                            </div>
+                        </section>
+                        <section>
+                            {galleryImages.map((image) => (
+                                <ImageRenderer
+                                    path={image.thumbnailImage}
+                                    key={image.id}
+                                    width={110}
+                                    onClick={() => setSelectedImage(image.id)}
+                                    className={image.id === selectedImage ? "currentImage" : ""}
+                                />
+                            ))}
+                        </section>
+                    </div>
+                </Styled.Overlay>
+            </FullsizeImageModal>
         </>
     );
 }

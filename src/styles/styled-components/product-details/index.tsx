@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ProductWrapper = styled.section`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: ${({ theme }) => theme.spacing.md};
     width: 490px;
 
@@ -52,5 +53,23 @@ export const ProductWrapper = styled.section`
 
     >p:first-of-type{
        color: ${({ theme }) => theme.colors.darkGrayishBlue};
+    }
+
+    @media screen and (max-width: 1111px){
+        max-width: 800px;
+        width: 100vw;
+        padding: 1rem;
+
+        h1{ 
+        font-size: 25px;
+        text-transform: capitalize;
+    }
+
+    >ul{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: ${({ theme }) => theme.spacing.lg};
+    }
     }
 `;

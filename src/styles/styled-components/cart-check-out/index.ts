@@ -38,14 +38,23 @@ const fadeInAnimation = css`
 `;
 export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     position:  absolute;
-    right: 60px;
+    right: 2.5vw;
     top: 90px;
     width: 400px;
+    max-width: 95vw;
     height: 240px;
     border-bottom-left-radius: ${({ theme }) => theme.spacing.sm};
     border-bottom-right-radius: ${({ theme }) => theme.spacing.sm};
     box-shadow: 0 1rem 1.625rem rgb(31 50 81 / 22%); 
     background-color: ${({ theme }) => theme.colors.primaryBg};
+
+    @media screen and (max-width: 1111px) {
+        margin-left: 3vw !important;
+        li{
+            line-height: unset;
+        }
+    }
+    z-index: 100;
     
     &.toggleHideCheckoutCart{
         ${fadeOutAnimation};
@@ -88,6 +97,7 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
                    background-color: transparent;
                    border-radius: unset;
                    height: 30px;
+                   box-shadow: none;
 
 
                    &{
@@ -117,7 +127,7 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
                         flex-direction: column;
                         align-items: flex-start;
                         li{
-                            line-height: .6;
+                            
                             word-spacing: 2px;
                             strong{
                                 font-size: 18px;
@@ -131,6 +141,9 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
                     box-shadow: unset;
                     width: 100%;
                     text-transform: capitalize;
+                    box-shadow: 0 0.063rem 0.188rem rgb(31 50 81 / 12%), 0 0.063rem 0.125rem rgb(31 50 81 / 24%);
+
+                    
                 }
             }
         }

@@ -17,7 +17,6 @@ export const AddTocartButton = styled.button<AddToCartButtonProps>`
   gap: ${({ theme }) => theme.spacing.md};
   color: ${props => (props.color ? props.color : props.theme.colors.white)};
   box-shadow: 0px 20px  30px  ${({ theme }) => darken(.1, theme.colors.PaleOrange)};
-
   &:hover{
     background-color: ${({ theme }) => lighten(.2, theme.colors.orange)};
   }
