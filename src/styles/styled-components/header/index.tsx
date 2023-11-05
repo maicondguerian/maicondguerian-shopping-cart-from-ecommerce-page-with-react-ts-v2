@@ -54,6 +54,9 @@ export const Navbar = styled.div`
                 }
 
             }
+            @media screen and (min-width: 1111px){
+                    display: none;   
+                }
             
         }
         
