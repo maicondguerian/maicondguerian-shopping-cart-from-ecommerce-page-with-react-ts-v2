@@ -5,7 +5,7 @@ import Separator from "@ui/separador";
 import usePath from "@src/data/custom-hooks/usePath";
 import { ImageRenderer } from "@ui/image-renderer";
 import avatar from "@/public/assets/image-avatar.png";
-import logo from "@/assets/logo.svg";
+import logo from "@/public/assets/logo.svg";
 import ShoppingCart from "@/src/ui/components/cart-buttom";
 import { useCart } from "@/src/data/contexts/cartContext";
 import { CartCheckout } from "../cart-check-out";
