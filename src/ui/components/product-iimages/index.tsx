@@ -68,6 +68,8 @@ export function ProductCarrousekImageComponent() {
         nextImage();
     }, []);
 
+    console.log(galleryImages[0].fullSizedImage);
+
     return (
         <>
             <Styled.ProductImageGalleryWrapper openModal={openModal}>
@@ -89,10 +91,10 @@ export function ProductCarrousekImageComponent() {
                             height: 430,
                             isFluidWidth: false,
                             alt: "gallery-images",
-                            src: selectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((element) => element.id === selectedImage)?.fullSizedImage,
+                            src: selectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((element) => element.id === selectedImage)?.fullSizedImage || "/assets/image-product-1.jpg",
                         },
                         largeImage: {
-                            src: selectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((element) => element.id === selectedImage)?.fullSizedImage,
+                            src: selectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((element) => element.id === selectedImage)?.fullSizedImage || "/assets/image-product-1.jpg",
                             height: 1200,
                             width: 1200
                         }
