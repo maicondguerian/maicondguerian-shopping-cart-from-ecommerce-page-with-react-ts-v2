@@ -1,9 +1,6 @@
 import { Styled } from "@/src/styles";
-import { ImageRenderer } from "../image-renderer";
-import { galleryImages } from "./gallery-images";
-import { AddToCartButtomProps } from "../quantity-counter-button";
 
-import { useEffect } from "react";
+import { AddToCartButtomProps } from "../quantity-counter-button";
 
 type FullsizeImageModalProps = {
     getSelectedImage?: number | null;
@@ -14,10 +11,7 @@ type FullsizeImageModalProps = {
 }
 
 export function FullsizeImageModal({
-    getSelectedImage,
-    getSetSelectImage,
     isOpen = false,
-    getCloseModalFunciton,
     children }
     : FullsizeImageModalProps) {
 
