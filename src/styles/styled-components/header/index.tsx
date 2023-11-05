@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Navbar = styled.div`
     display: flex;
     justify-content: space-around;
-
+    width: 100%;
     header{
         display: flex;
         padding: ${({ theme }) => theme.spacing.xl} 0 0;
@@ -34,7 +34,7 @@ export const Navbar = styled.div`
         ul:nth-child(1){
             li:first-child{
                 position: relative;
-                width: 40px;
+                width: 30px;
                 height: 30px;
                 cursor: pointer;
                 display: flex;
@@ -49,22 +49,22 @@ export const Navbar = styled.div`
                     height: 3px;
                     background-color: ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground};
                     padding: 0;
-                    box-shadow: 0 -12px ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground},
-                     0 12px ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground};
+                    box-shadow: 0 -10px ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground},
+                     0 10px ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground};
                 }
 
-                @media screen and (min-width: 900px){
-                    display: none;   
-                }
             }
-
+            
         }
-    
+        
         ul:nth-child(2){
             margin-left: ${({ theme }) => theme.spacing.xl}
         }
         
-        @media screen and (max-width: 900px){
+        @media screen and (max-width: 1111px){
+            ul{
+                gap: ${({ theme }) => theme.spacing.md};
+            }
             ul:nth-child(2){
                 display: none;
             }

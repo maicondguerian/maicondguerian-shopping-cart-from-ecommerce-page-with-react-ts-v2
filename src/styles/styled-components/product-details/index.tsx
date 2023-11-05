@@ -75,7 +75,7 @@ export const ProductWrapper = styled.section`
 
     @media screen and (max-width: 1111px){
         width: 100vw;
-        padding: 1rem;
+        padding: ${({ theme }) => theme.spacing.lg};
         
         h1{ 
             font-size: 25px;
