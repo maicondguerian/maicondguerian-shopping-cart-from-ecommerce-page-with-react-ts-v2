@@ -45,31 +45,49 @@ export const ProductWrapper = styled.section`
     }
 
 
+
     >ul{
         display: flex;
         align-items: center;
         gap: ${({ theme }) => theme.spacing.lg};
+        
+        li:first-of-type{
+            display: flex;
+            flex-grow: 1;
+            
+            >div{
+                flex: 1 1 150px;
+            }
+        }
+        li:last-of-type{
+           display: flex;
+           flex: 1 1 350px;
+           
+           button{
+               width: 100%;
+           }
+        }
     }
-
+    
     >p:first-of-type{
-       color: ${({ theme }) => theme.colors.darkGrayishBlue};
+        color: ${({ theme }) => theme.colors.darkGrayishBlue};
     }
 
     @media screen and (max-width: 1111px){
-        max-width: 800px;
         width: 100vw;
         padding: 1rem;
-
+        
         h1{ 
-        font-size: 25px;
-        text-transform: capitalize;
-    }
-
-    >ul{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: ${({ theme }) => theme.spacing.lg};
-    }
+            font-size: 25px;
+            text-transform: capitalize;
+        }
+        
+        >ul{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: ${({ theme }) => theme.spacing.lg};
+        }
     }
 `;
+
