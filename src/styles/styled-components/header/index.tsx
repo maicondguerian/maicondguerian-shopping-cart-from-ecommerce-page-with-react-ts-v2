@@ -105,7 +105,11 @@ export const SideMenu = styled.div`
     left: 0;
     width: 55vw;
     height: 100vh;
-    background-color: ${({ theme }) => theme.colors.grayishBlue};
+    background-color: ${({ theme }) => theme.colors.primaryBg};
     z-index: 1000;
     padding: 100px 0 0 1rem;
+
+    @media screen and (max-width: 1111px) {
+        display: none;
+    }
 `;

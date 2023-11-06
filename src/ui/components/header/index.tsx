@@ -15,8 +15,8 @@ import { useMediaQueries } from "@/src/data/contexts/MediaQueries";
 export default function Header() {
     const { isCurrentPath } = usePath();
     const context = useCart();
+    const mediaContext = useMediaQueries();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
-    const { showMediaQuerieSideMenu, toggleSideMenu } = useMediaQueries();
 
     React.useEffect(() => {
         if (context.cartQuantity !== prevCartQuantity) {
@@ -33,12 +33,12 @@ export default function Header() {
         <>
             <Styled.Navbar>
                 <SidebarHeader
-                    className={showMediaQuerieSideMenu ? "toggleOpenSideBar" : "toggleCloseSideBar"}
-                    isOpen={showMediaQuerieSideMenu}
+                    className={mediaContext.showMediaQuerieSideMenu ? "toggleOpenSideBar" : "toggleCloseSideBar"}
+                    isOpen={mediaContext.showMediaQuerieSideMenu && mediaContext.showMobileImageDisplay}
                 />
                 <header>
                     <ul>
-                        <li onClick={toggleSideMenu} />
+                        <li onClick={mediaContext.toggleSideMenu} />
                         <li>
                             <Link to={"/"}><ImageRenderer path={logo} /></Link>
                         </li>

@@ -6,29 +6,12 @@ import { ChangeImageButtom, FullsizeImageModal } from "./gallery-imeges-modal";
 import ReactImageMagnify from "react-image-magnify";
 import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
+import { useMediaQueries } from "@/src/data/contexts/MediaQueries";
 
 export function ProductCarrousekImageComponent() {
     const [selectedImage, setSelectedImage] = React.useState<null | number>(null);
     const [openModal, setOpenModal] = React.useState(false);
-    const [showMobileImageDisplay, setShowMobileImageDisplay] = React.useState(false);
-
-    React.useEffect(() => {
-        function mathWindow() {
-            if (window.matchMedia("(max-width: 1111px)").matches) {
-                setShowMobileImageDisplay(true);
-            }
-            else {
-                setShowMobileImageDisplay(false);
-            }
-        }
-        mathWindow();
-        window.addEventListener("resize", mathWindow);
-
-        return () => {
-            window.removeEventListener("resize", mathWindow);
-        };
-
-    }, []);
+    const querieContext = useMediaQueries();
 
     const buttonsData = [
         {
@@ -99,7 +82,7 @@ export function ProductCarrousekImageComponent() {
                     }} />
                 </section>
             </Styled.ProductImageGalleryWrapper>
-            <FullsizeImageModal isOpen={openModal || showMobileImageDisplay}>
+            <FullsizeImageModal isOpen={openModal || querieContext.showMobileImageDisplay}>
                 <section>
                     <ImageRenderer
                         path={selectedImage === null ? galleryImages[0].fullSizedImage :
