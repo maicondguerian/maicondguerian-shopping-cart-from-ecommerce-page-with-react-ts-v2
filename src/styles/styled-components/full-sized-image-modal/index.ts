@@ -7,7 +7,6 @@ export const Modal = styled.div`
 
     section:first-of-type{
         position: relative;
-
         button:nth-child(1){
             position: absolute;
             left: -30px;
@@ -106,10 +105,11 @@ export const Overlay = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     @media screen and (max-width: 1111px) {
         display: block;
         background-color: unset;
-        position: unset;
+        position: unset; 
     }
 `;

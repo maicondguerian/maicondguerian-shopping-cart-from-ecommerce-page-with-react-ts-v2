@@ -1,14 +1,17 @@
+import { Styled } from "@/src/styles";
+
 type SidebarHeader = {
-  isOpen: boolean
+  className: string
 }
-const SidebarHeader = ({ isOpen }: SidebarHeader) => {
+const SidebarHeader = ({ className }: SidebarHeader) => {
   return (
-    <>
-      {isOpen && (
-        <div>Sideheader</div>
-      )}
-    </>
+    <Styled.Overlay>
+      <Styled.SideMenu
+        className={className}
+      >Sideheader
+      </Styled.SideMenu>
+    </Styled.Overlay>
   );
 };
-
 export default SidebarHeader;
+

@@ -32,7 +32,7 @@ export function CartCheckout({ isCheckoutCartOpen, className }: CartCheckoutProp
                         )}
                         <div>
                             {context.productCartList.map((elem) => (
-                                <section key={elem.id} className="essa">
+                                <section key={elem.id}>
                                     <ul>
                                         <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
                                         <ul>

@@ -9,11 +9,14 @@ import logo from "@/src/assets/logo.svg";
 import ShoppingCart from "@/src/ui/components/cart-buttom";
 import { useCart } from "@/src/data/contexts/cartContext";
 import { CartCheckout } from "../cart-check-out";
+import SidebarHeader from "./sidebar-header";
 
 export default function Header() {
     const { isCurrentPath } = usePath();
     const context = useCart();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
+
+    const [sideMenu, setSideMenu] = React.useState(false);
 
     React.useEffect(() => {
         if (context.cartQuantity !== prevCartQuantity) {
@@ -29,9 +32,12 @@ export default function Header() {
     return (
         <>
             <Styled.Navbar>
+                {/* <SidebarHeader
+                    className={sideMenu ? "teste" : "nsei"}
+                /> */}
                 <header>
                     <ul>
-                        <li />
+                        <li onClick={() => setSideMenu((prevState) => !prevState)} />
                         <li>
                             <Link to={"/"}><ImageRenderer path={logo} /></Link>
                         </li>

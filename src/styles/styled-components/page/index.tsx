@@ -6,7 +6,7 @@ export const Page = styled.article`
     height: 100vh;
     gap: calc(${({ theme }) => theme.spacing.xxxl} + ${({ theme }) => theme.spacing.sm});
 
-    @media screen and (max-width: 1070px){
+    @media screen and (max-width: 1111px){
         flex-direction: column;
         display: block;
     }

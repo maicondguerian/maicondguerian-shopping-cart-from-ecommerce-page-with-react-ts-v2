@@ -8,5 +8,6 @@ export const Container = styled.main`
     
     @media screen and (max-width: 1111px) {
         align-items: center;
+        overflow: hidden;
     }
 `;

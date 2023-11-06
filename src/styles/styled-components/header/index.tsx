@@ -41,6 +41,7 @@ export const Navbar = styled.div`
                 align-items: center;
                 justify-content: center;
                 padding: 0;
+                z-index: 1001;
                 
                 &::before{
                     content: '';
@@ -55,7 +56,9 @@ export const Navbar = styled.div`
 
             }
             @media screen and (min-width: 1111px){
-                    display: none;   
+                   li:first-child{
+                    display: none;
+                   }   
                 }
             
         }
@@ -94,4 +97,15 @@ export const Navbar = styled.div`
             }
         }
     }
+`;
+
+export const SideMenu = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55vw;
+    height: 100vh;
+    background-color: ${({ theme }) => theme.colors.primaryBg};
+    z-index: 1000;
+    padding: 100px 0 0 1rem;
 `;

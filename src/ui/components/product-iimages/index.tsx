@@ -68,8 +68,6 @@ export function ProductCarrousekImageComponent() {
         nextImage();
     }, []);
 
-    console.log(galleryImages[0].fullSizedImage);
-
     return (
         <>
             <Styled.ProductImageGalleryWrapper openModal={openModal}>
@@ -102,38 +100,34 @@ export function ProductCarrousekImageComponent() {
                 </section>
             </Styled.ProductImageGalleryWrapper>
             <FullsizeImageModal isOpen={openModal || showMobileImageDisplay}>
-                <Styled.Overlay>
+                <section>
+                    <ImageRenderer
+                        path={selectedImage === null ? galleryImages[0].fullSizedImage :
+                            galleryImages.find((image) => image.id === selectedImage)?.fullSizedImage}
+                        width={550}
+                    />
                     <div>
-                        <section>
-                            <ImageRenderer
-                                path={selectedImage === null ? galleryImages[0].fullSizedImage :
-                                    galleryImages.find((image) => image.id === selectedImage)?.fullSizedImage}
-                                width={550}
+                        {buttonsData.map((button, i) => (
+                            <ChangeImageButtom
+                                icon={button.icon}
+                                onClick={button.onClick}
+                                size={button.size}
+                                key={i}
                             />
-                            <div>
-                                {buttonsData.map((button, i) => (
-                                    <ChangeImageButtom
-                                        icon={button.icon}
-                                        onClick={button.onClick}
-                                        size={button.size}
-                                        key={i}
-                                    />
-                                ))}
-                            </div>
-                        </section>
-                        <section>
-                            {galleryImages.map((image) => (
-                                <ImageRenderer
-                                    path={image.thumbnailImage}
-                                    key={image.id}
-                                    width={110}
-                                    onClick={() => setSelectedImage(image.id)}
-                                    className={image.id === selectedImage ? "currentImage" : ""}
-                                />
-                            ))}
-                        </section>
+                        ))}
                     </div>
-                </Styled.Overlay>
+                </section>
+                <section>
+                    {galleryImages.map((image) => (
+                        <ImageRenderer
+                            path={image.thumbnailImage}
+                            key={image.id}
+                            width={110}
+                            onClick={() => setSelectedImage(image.id)}
+                            className={image.id === selectedImage ? "currentImage" : ""}
+                        />
+                    ))}
+                </section>
             </FullsizeImageModal>
         </>
     );

@@ -17,11 +17,11 @@ export function FullsizeImageModal({
 
     return (
         isOpen && (
-            <>
+            <Styled.Overlay>
                 <Styled.Modal>
                     {children}
                 </Styled.Modal>
-            </>
+            </Styled.Overlay>
         )
     );
 }
