@@ -8,7 +8,10 @@ type ContainerProps = {
 export default function Container({ children, onClick, ...rest }: ContainerProps) {
     const { showMediaQuerieSideMenu } = useMediaQueries();
     return (
-        <Styled.Container onClick={onClick} {...rest} showMediaQuerieSideMenu={showMediaQuerieSideMenu}>
+        <Styled.Container
+            onClick={onClick} {...rest}
+            showMediaQuerieSideMenu={showMediaQuerieSideMenu}
+        >
             {children}
         </Styled.Container>
     );
