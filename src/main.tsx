@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import { LightTheme } from "./styles";
 import { CartProvider } from "./data/contexts/cartContext";
 import HomePage from "./pages/home";
+import { MediaQueriesProvider } from "./data/contexts/MediaQueries";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider theme={LightTheme}>
       <CartProvider>
-        <RouterProvider router={router} />
+        <MediaQueriesProvider>
+          <RouterProvider router={router} />
+        </MediaQueriesProvider>
       </CartProvider>
     </ThemeProvider>
   </React.StrictMode>,

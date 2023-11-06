@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const Container = styled.main`
+type ContainerProps = {
+    showMediaQuerieSideMenu: boolean
+}
+export const Container = styled.main<ContainerProps>`
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -8,6 +11,12 @@ export const Container = styled.main`
     
     @media screen and (max-width: 1111px) {
         align-items: center;
-        overflow: hidden;
+        overflow: ${props => props.showMediaQuerieSideMenu ? "hidden" : "unset"};
     }
 `;
+
+function shouldForwardProp(props: string) {
+    return props !== "showMediaQuerieSideMenu";
+}
+
+Container.shouldForwardProp = shouldForwardProp;

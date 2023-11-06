@@ -10,13 +10,13 @@ import ShoppingCart from "@/src/ui/components/cart-buttom";
 import { useCart } from "@/src/data/contexts/cartContext";
 import { CartCheckout } from "../cart-check-out";
 import SidebarHeader from "./sidebar-header";
+import { useMediaQueries } from "@/src/data/contexts/MediaQueries";
 
 export default function Header() {
     const { isCurrentPath } = usePath();
     const context = useCart();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
-
-    const [sideMenu, setSideMenu] = React.useState(false);
+    const { showMediaQuerieSideMenu, toggleSideMenu } = useMediaQueries();
 
     React.useEffect(() => {
         if (context.cartQuantity !== prevCartQuantity) {
@@ -32,12 +32,13 @@ export default function Header() {
     return (
         <>
             <Styled.Navbar>
-                {/* <SidebarHeader
-                    className={sideMenu ? "teste" : "nsei"}
-                /> */}
+                <SidebarHeader
+                    className={showMediaQuerieSideMenu ? "toggleOpenSideBar" : "toggleCloseSideBar"}
+                    isOpen={showMediaQuerieSideMenu}
+                />
                 <header>
                     <ul>
-                        <li onClick={() => setSideMenu((prevState) => !prevState)} />
+                        <li onClick={toggleSideMenu} />
                         <li>
                             <Link to={"/"}><ImageRenderer path={logo} /></Link>
                         </li>
