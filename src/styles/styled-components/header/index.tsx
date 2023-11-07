@@ -69,8 +69,15 @@ export const Navbar = styled.div`
         }
         
         @media screen and (max-width: 1111px){
+            padding: 0;
             ul{
                 gap: ${({ theme }) => theme.spacing.md};
+                display: flex;
+                align-items: center;
+
+                li{
+                    padding: 0;
+                }
             }
             ul:nth-child(2){
                 display: none;
