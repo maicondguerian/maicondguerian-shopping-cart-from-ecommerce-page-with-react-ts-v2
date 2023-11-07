@@ -10,7 +10,9 @@ const SidebarHeader = ({ isOpen, className }: SidebarHeader) => {
       {isOpen && (
         <Styled.SideMenu
           className={className}
-        >Sideheader</Styled.SideMenu>
+        >
+          <div>Sideheader</div>
+        </Styled.SideMenu>
       )}
     </>
   );

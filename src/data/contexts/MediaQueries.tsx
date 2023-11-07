@@ -5,7 +5,7 @@ type MediaQueriesContextProps = {
     setShowMediaQuerieSideMenu: React.Dispatch<React.SetStateAction<boolean>>
     toggleSideMenu: () => void
     setShowMobileImageDisplay: React.Dispatch<React.SetStateAction<boolean>>
-    showMobileImageDisplay: boolean
+    showMobileImageDisplay: boolean,
 }
 const MediaQueriesContext = React.createContext({} as MediaQueriesContextProps);
 type MediaQueriesProviderProps = {
@@ -16,13 +16,14 @@ export function MediaQueriesProvider({ children }: MediaQueriesProviderProps) {
     const [showMobileImageDisplay, setShowMobileImageDisplay] = React.useState(false);
 
     React.useEffect(() => {
+
         function mathWindow() {
             if (window.matchMedia(("(max-width: 1111px)")).matches) {
                 setShowMobileImageDisplay(true);
             }
             else {
-                setShowMobileImageDisplay(false);
-                setShowMediaQuerieSideMenu(false);
+                setShowMobileImageDisplay(false); //carrousel
+                setShowMediaQuerieSideMenu(false); //menu
             }
         }
         mathWindow();
@@ -44,7 +45,7 @@ export function MediaQueriesProvider({ children }: MediaQueriesProviderProps) {
             setShowMediaQuerieSideMenu,
             toggleSideMenu,
             setShowMobileImageDisplay,
-            showMobileImageDisplay
+            showMobileImageDisplay,
         }}>
             {children}
         </MediaQueriesContext.Provider>

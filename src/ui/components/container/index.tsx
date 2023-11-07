@@ -6,11 +6,11 @@ type ContainerProps = {
 } & React.HtmlHTMLAttributes<HTMLDivElement>
 
 export default function Container({ children, onClick, ...rest }: ContainerProps) {
-    const { showMediaQuerieSideMenu } = useMediaQueries();
+    const querieContext = useMediaQueries();
     return (
         <Styled.Container
             onClick={onClick} {...rest}
-            showMediaQuerieSideMenu={showMediaQuerieSideMenu}
+            showMediaQuerieSideMenu={querieContext.showMediaQuerieSideMenu}
         >
             {children}
         </Styled.Container>

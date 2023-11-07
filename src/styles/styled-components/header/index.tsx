@@ -109,7 +109,8 @@ export const SideMenu = styled.div`
     z-index: 1000;
     padding: 100px 0 0 1rem;
 
+
     @media screen and (max-width: 1111px) {
-        display: none;
+        /* display: none; */
     }
 `;

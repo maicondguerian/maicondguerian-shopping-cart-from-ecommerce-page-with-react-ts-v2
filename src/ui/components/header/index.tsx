@@ -38,7 +38,10 @@ export default function Header() {
                 />
                 <header>
                     <ul>
-                        <li onClick={mediaContext.toggleSideMenu} />
+                        <li onClick={(event) => {
+                            mediaContext.toggleSideMenu();
+                            event.stopPropagation();
+                        }} />
                         <li>
                             <Link to={"/"}><ImageRenderer path={logo} /></Link>
                         </li>

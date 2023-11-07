@@ -5,7 +5,7 @@ import { AddToCartButtomProps } from "../quantity-counter-button";
 type FullsizeImageModalProps = {
     getSelectedImage?: number | null;
     getSetSelectImage?: React.Dispatch<React.SetStateAction<number | null>>
-    isOpen: boolean;
+    isOpen: boolean | React.MutableRefObject<boolean>;
     getCloseModalFunciton?: React.Dispatch<React.SetStateAction<boolean>>
     children: React.ReactNode
 }
