@@ -13,7 +13,7 @@ import SidebarHeader from "./sidebar-header";
 import { useMediaQueries } from "@/src/data/contexts/MediaQueries";
 
 export default function Header() {
-    const { isCurrentPath } = usePath();
+    // const { isCurrentPath } = usePath();
     const context = useCart();
     const mediaContext = useMediaQueries();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
@@ -35,7 +35,10 @@ export default function Header() {
                 <SidebarHeader
                     className={mediaContext.showMediaQuerieSideMenu ? "toggleOpenSideBar" : "toggleCloseSideBar"}
                     isOpen={mediaContext.showMediaQuerieSideMenu && mediaContext.showMobileImageDisplay}
-                />
+                    onClick={(event) => event.stopPropagation()}
+                >
+                    <MenuLinks />
+                </SidebarHeader>
                 <header>
                     <ul>
                         <li onClick={(event) => {
@@ -46,16 +49,7 @@ export default function Header() {
                             <Link to={"/"}><ImageRenderer path={logo} /></Link>
                         </li>
                     </ul>
-                    <ul>
-                        <li className={isCurrentPath("/collections") ? "currentPage" : "regularStyle"}
-                        >
-                            <Link to={"/collections"}> collections</Link>
-                        </li>
-                        <li>men</li>
-                        <li>woman</li>
-                        <li>about us</li>
-                        <li>contact</li>
-                    </ul>
+                    <MenuLinks />
                 </header>
                 <ul>
                     <li>
@@ -78,5 +72,21 @@ export default function Header() {
             </Styled.Navbar>
             <Separator width="70%" mb={"0"} />
         </>
+    );
+}
+
+export function MenuLinks() {
+    const { isCurrentPath } = usePath();
+    return (
+        <ul>
+            <li className={isCurrentPath("/collections") ? "currentPage" : "regularStyle"}
+            >
+                <Link to={"/collections"}> collections</Link>
+            </li>
+            <li>men</li>
+            <li>woman</li>
+            <li>about us</li>
+            <li>contact</li>
+        </ul>
     );
 }

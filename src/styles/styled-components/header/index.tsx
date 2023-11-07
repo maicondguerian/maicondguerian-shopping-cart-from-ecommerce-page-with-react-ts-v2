@@ -4,6 +4,7 @@ export const Navbar = styled.div`
     display: flex;
     justify-content: space-around;
     width: 100%;
+
     header{
         display: flex;
         padding: ${({ theme }) => theme.spacing.xl} 0 0;
@@ -42,7 +43,7 @@ export const Navbar = styled.div`
                 justify-content: center;
                 padding: 0;
                 z-index: 1001;
-                
+
                 &::before{
                     content: '';
                     position: absolute;
@@ -97,6 +98,11 @@ export const Navbar = styled.div`
             }
         }
     }
+    .overlay{
+        background-color: rgba(0,0,0,.4);
+        position: absolute;
+        z-index: 1001;
+    }
 `;
 
 export const SideMenu = styled.div`
@@ -106,8 +112,20 @@ export const SideMenu = styled.div`
     width: 55vw;
     height: 100vh;
     background-color: ${({ theme }) => theme.colors.primaryBg};
-    z-index: 1000;
     padding: 100px 0 0 1rem;
+    box-shadow: 0 0.063rem 0.188rem rgb(31 50 81 / 12%), 0 0.063rem 0.125rem rgb(31 50 81 / 24%);
+
+    ul{
+        li{
+            padding: .5rem 0 ;
+            width: 80px;
+        }
+    }
+    .currentPage{
+        border-bottom: solid 4px ${({ theme }) => theme.colors.orange};
+        color: ${({ theme }) => theme.colors.veryDarkBlue};
+        
+    }
 
 
     @media screen and (max-width: 1111px) {
