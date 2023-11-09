@@ -9,5 +9,6 @@ export const Page = styled.article`
     @media screen and (max-width: 1111px){
         flex-direction: column;
         display: block;
+        height: unset;
     }
 `;

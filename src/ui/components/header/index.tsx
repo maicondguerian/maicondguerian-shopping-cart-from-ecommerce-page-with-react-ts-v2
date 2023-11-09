@@ -70,7 +70,7 @@ export default function Header() {
                     className={context.showCheckoutCartModal ? "toggleOpenCheckoutCart" : "toggleHideCheckoutCart"}
                 />
             </Styled.Navbar>
-            <Separator width="70%" mb={"0"} />
+            <Separator width="70%" align="center" />
         </>
     );
 }

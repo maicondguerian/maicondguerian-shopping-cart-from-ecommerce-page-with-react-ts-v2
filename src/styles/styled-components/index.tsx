@@ -10,3 +10,5 @@ export { ProductImageGalleryWrapper } from "./product-image-gallery";
 export { Modal, ImageChangerButton, Overlay } from "./full-sized-image-modal";
 export { CheckoutWrapper } from "./cart-check-out";
 export { Page } from "./page";
+export { Footer } from "./footer";
+

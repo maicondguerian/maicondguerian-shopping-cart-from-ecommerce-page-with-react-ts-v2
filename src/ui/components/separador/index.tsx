@@ -2,15 +2,13 @@ import { Styled } from "../../../styles";
 
 export type SeparatorProps = {
     width?: "30%" | "60%" | "70%" | "90%" | "100%"
+    align?: "start" | "center" | "end"
     mb?: string
 }
 
-export default function Separator({ width, mb }: SeparatorProps) {
+export default function Separator({ width, mb = "0", align }: SeparatorProps) {
 
     return (
-        <Styled.CenteredSeparatorContainer mb={mb}>
-            <Styled.Separator width={width} />
-        </Styled.CenteredSeparatorContainer>
+        <Styled.Separator width={width} mb={mb} align={align} />
     );
-
 }

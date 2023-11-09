@@ -7,7 +7,6 @@ export const Container = styled.main<ContainerProps>`
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: ${({ theme }) => theme.colors.primaryBg};
     
     @media screen and (max-width: 1111px) {
         align-items: center;

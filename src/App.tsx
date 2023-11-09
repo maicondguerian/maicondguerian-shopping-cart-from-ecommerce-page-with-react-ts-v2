@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./ui/components/header";
 import { useCart } from "./data/contexts/cartContext";
 import { useMediaQueries } from "./data/contexts/MediaQueries";
+import { Footer } from "./ui/components/footer";
 
 function App() {
   const context = useCart();
@@ -16,8 +17,9 @@ function App() {
         querieContext.setShowMediaQuerieSideMenu(false);
       }}>
       <Header />
-      <GlobalStyles />
       <Outlet />
+      <Footer />
+      <GlobalStyles />
     </Container>
   );
 }

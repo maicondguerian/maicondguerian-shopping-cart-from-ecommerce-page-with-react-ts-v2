@@ -1,7 +1,7 @@
 type ImageRendererProps = {
-    path?: string;
+    path: string;
     onClick?: () => void;
-    width?: number;
+    width?: number | null;
 } & React.ImgHTMLAttributes<HTMLImageElement>
 
 export function ImageRenderer({ path, onClick, width, style, ...rest }: ImageRendererProps) {
