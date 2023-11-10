@@ -12,12 +12,14 @@ import { CartCheckout } from "../cart-check-out";
 import SidebarHeader from "./sidebar-header";
 import { useMediaQueries } from "@/src/data/contexts/MediaQueries";
 import { IoIosArrowDown } from "react-icons/io";
+import AccountMenu from "../profile-menu";
+import CustomButtom from "@ui/CustomButtom";
 
 export default function Header() {
     const context = useCart();
     const mediaContext = useMediaQueries();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
-
+    const [settings, setSettings] = React.useState(false);
     React.useEffect(() => {
         if (context.cartQuantity !== prevCartQuantity) {
             setPrevCartQuantity(context.cartQuantity);
@@ -31,7 +33,7 @@ export default function Header() {
 
     return (
         <>
-            <Styled.Navbar>
+            <Styled.Navbar settings={settings}>
                 <SidebarHeader
                     className={mediaContext.showMediaQuerieSideMenu ? "toggleOpenSideBar" : "toggleCloseSideBar"}
                     isOpen={mediaContext.showMediaQuerieSideMenu && mediaContext.showMobileImageDisplay}
@@ -63,7 +65,12 @@ export default function Header() {
                     </li>
                     <li>
                         <ImageRenderer path={avatar} />
-                        <IoIosArrowDown size={21} />
+                        <CustomButtom
+                            icon={IoIosArrowDown}
+                            size={21}
+                            onClick={() => setSettings((prevState) => !prevState)}
+                        />
+                        <AccountMenu isOpen={settings} />
                     </li>
                 </ul>
                 <CartCheckout

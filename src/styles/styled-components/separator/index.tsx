@@ -14,7 +14,7 @@ CenteredSeparatorContainer.shouldForwardProp = (props) => props !== "mb";
 export const Separator = styled.hr<StyledSeparatorProps>`
     height: 1.2px;
     background-color: ${({ theme }) => theme.colors.grayishBlue};
-    border: transparent;
+    /* border: transparent; */
     opacity: .3;
     width: ${(props) => (props.width ? props.width : "100%")};
     align-self: ${(props) => (props.align === "start" ? "flex-start" : props.align === "center" ? "center" : props.align === "end" ? "flex-end" : "center")};

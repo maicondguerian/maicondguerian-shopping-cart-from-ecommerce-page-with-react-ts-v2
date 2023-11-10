@@ -1,6 +1,21 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+type NavbarProps = {
+    settings: boolean
+}
 
-export const Navbar = styled.div`
+const rotateAnimation = keyframes`
+from {
+    transform: rotate(0deg);
+}
+to{
+    transform: rotate(180deg);
+}
+`;
+
+const rotateDrop = css<Pick<NavbarProps, "settings">>`
+  animation: ${props => (props.settings ? css`${rotateAnimation} 0.2s ease-in forwards` : "none")};
+`;
+export const Navbar = styled.div<NavbarProps>`
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -103,11 +118,13 @@ export const Navbar = styled.div`
     >ul:last-of-type{
         display: flex;
         align-items: center;
-        gap: ${({ theme }) => theme.spacing.xl};
-
+        gap: ${({ theme }) => theme.spacing.lg};
+        
         >li:nth-child(2){ 
             display: flex;
             align-items: center;
+            position: relative;
+            gap: ${({ theme }) => theme.spacing.xs};
 
             img{
                 height: 50px;
@@ -119,6 +136,11 @@ export const Navbar = styled.div`
                     border: solid 2px  ${({ theme }) => theme.colors.orange};
                     transition: all .2s ease-in-out;
                 }
+            }
+        }
+            li:nth-child(2){
+            >button{
+               ${rotateDrop}
             }
         }
     }
