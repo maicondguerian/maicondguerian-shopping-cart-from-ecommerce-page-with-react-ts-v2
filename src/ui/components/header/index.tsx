@@ -11,9 +11,9 @@ import { useCart } from "@/src/data/contexts/cartContext";
 import { CartCheckout } from "../cart-check-out";
 import SidebarHeader from "./sidebar-header";
 import { useMediaQueries } from "@/src/data/contexts/MediaQueries";
+import { IoIosArrowDown } from "react-icons/io";
 
 export default function Header() {
-    // const { isCurrentPath } = usePath();
     const context = useCart();
     const mediaContext = useMediaQueries();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
@@ -63,6 +63,7 @@ export default function Header() {
                     </li>
                     <li>
                         <ImageRenderer path={avatar} />
+                        <IoIosArrowDown size={21} />
                     </li>
                 </ul>
                 <CartCheckout
@@ -77,6 +78,7 @@ export default function Header() {
 
 export function MenuLinks() {
     const { isCurrentPath } = usePath();
+
     return (
         <ul>
             <li className={isCurrentPath("/collections") ? "currentPage" : "regularStyle"}

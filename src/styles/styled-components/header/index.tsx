@@ -24,6 +24,24 @@ export const Navbar = styled.div`
                 justify-content: center;
                 padding:  0  0 calc(${({ theme }) => theme.spacing.md} + .5rem);
                 color: ${({ theme }) => theme.colors.darkGrayishBlue};
+                position: relative;
+                cursor: pointer;
+            }
+
+            li::after{
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                transition: width .3s ease;
+                height: 4px;
+                background-color: ${({ theme }) => theme.colors.orange};
+            }
+            li:hover::after{
+                width: 100%;
             }
 
             .currentPage{
@@ -85,6 +103,9 @@ export const Navbar = styled.div`
         gap: ${({ theme }) => theme.spacing.xl};
 
         >li:nth-child(2){ 
+            display: flex;
+            align-items: center;
+
             img{
                 height: 50px;
                 border: solid 2px transparent;
