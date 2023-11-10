@@ -13,21 +13,7 @@ export const Navbar = styled.div`
             padding: .2rem .5rem;
         }
         
-        ul{
-            display: flex;
-            gap: ${({ theme }) => theme.spacing.xl};
-
-            li{
-                text-transform: capitalize;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding:  0  0 calc(${({ theme }) => theme.spacing.md} + .5rem);
-                color: ${({ theme }) => theme.colors.darkGrayishBlue};
-                position: relative;
-                cursor: pointer;
-            }
-
+        ul:last-child{
             li::after{
                 content: '';
                 display: block;
@@ -48,6 +34,23 @@ export const Navbar = styled.div`
                 border-bottom: solid 4px ${({ theme }) => theme.colors.orange};
                 color: ${({ theme }) => theme.colors.veryDarkBlue};
             }
+        }
+        ul{
+            display: flex;
+            gap: ${({ theme }) => theme.spacing.xl};
+
+            li{
+                text-transform: capitalize;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding:  0  0 calc(${({ theme }) => theme.spacing.md} + .5rem);
+                color: ${({ theme }) => theme.colors.darkGrayishBlue};
+                position: relative;
+                cursor: pointer;
+            }
+
+  
         }
 
         ul:nth-child(1){
