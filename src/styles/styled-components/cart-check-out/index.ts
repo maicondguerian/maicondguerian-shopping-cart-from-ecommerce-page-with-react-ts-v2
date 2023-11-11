@@ -1,8 +1,7 @@
+import { CartContextProps } from "@/src/data/contexts/cartContext";
 import styled, { css, keyframes } from "styled-components";
 
-type CheckoutWrapperProps = {
-    isCheckoutCartOpen: boolean
-}
+type CheckoutWrapperProps = Pick<CartContextProps, "showCheckoutCartModal">
 
 const fadeIn = keyframes`
     from {
@@ -25,17 +24,21 @@ const fadeOut = keyframes`
     to {
         opacity: 0;
         transform: translateY(-50px);
-        display: none;
     }
 `;
 
-const fadeOutAnimation = css`
-    animation: ${fadeOut} .1s ease-in-out;
+// const fadeOutAnimation = css`
+//     animation: ${fadeOut} .1s ease-in-out;
+// `;
+
+// const fadeInAnimation = css`
+//     animation: ${fadeIn} .1s ease-in-out;
+// `;
+
+const fadeAnimation = css<CheckoutWrapperProps>`
+    animation: ${(props) => props.showCheckoutCartModal ? css`${fadeIn} .1s ease-in-out ` : css`${fadeOut} .1s ease-in-out `}
 `;
 
-const fadeInAnimation = css`
-    animation: ${fadeIn} .1s ease-in-out;
-`;
 export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     position:  absolute;
     right: 2.5vw;
@@ -56,16 +59,9 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     }
     z-index: 100;
     
-    &.toggleHideCheckoutCart{
-        ${fadeOutAnimation};
-        display: none;
-       
-    }
-    
-    &.toggleOpenCheckoutCart{
-        ${fadeInAnimation};
-        display: block;
-    }
+
+
+    ${fadeAnimation};
 
     span{
         width: 100%;

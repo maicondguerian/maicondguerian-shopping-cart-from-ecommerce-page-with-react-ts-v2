@@ -9,19 +9,19 @@ import { PiTrashDuotone } from "react-icons/pi";
 import { ChangeImageButtom as TrashButtom } from "../product-iimages/gallery-imeges-modal";
 
 type CartCheckoutProps = {
-    isCheckoutCartOpen: boolean
     className: string
+    showCheckoutCartModal: boolean
 }
 
-export function CartCheckout({ isCheckoutCartOpen, className }: CartCheckoutProps) {
+export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutProps) {
     const context = useCart();
     return (
         <>
             {
 
                 <Styled.CheckoutWrapper
+                    showCheckoutCartModal={showCheckoutCartModal}
                     onClick={(event) => event.stopPropagation()}
-                    isCheckoutCartOpen={isCheckoutCartOpen}
                     className={className}
                 >
                     <span>Cart</span>

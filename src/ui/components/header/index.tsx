@@ -20,6 +20,7 @@ export default function Header() {
     const mediaContext = useMediaQueries();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
     const [settings, setSettings] = React.useState(false);
+
     React.useEffect(() => {
         if (context.cartQuantity !== prevCartQuantity) {
             setPrevCartQuantity(context.cartQuantity);
@@ -40,7 +41,7 @@ export default function Header() {
                     onClick={(event) => event.stopPropagation()}
                 >
                     <MenuLinks />
-                </SidebarHeader>
+                </SidebarHeader >
                 <header>
                     <ul>
                         <li onClick={(event) => {
@@ -70,11 +71,14 @@ export default function Header() {
                             size={21}
                             onClick={() => setSettings((prevState) => !prevState)}
                         />
-                        <AccountMenu isOpen={settings} />
+                        <AccountMenu
+                            isOpen={settings}
+                            className={settings ? "aberto" : "fechado"}
+                        />
                     </li>
                 </ul>
                 <CartCheckout
-                    isCheckoutCartOpen={true}
+                    showCheckoutCartModal={context.showCheckoutCartModal}
                     className={context.showCheckoutCartModal ? "toggleOpenCheckoutCart" : "toggleHideCheckoutCart"}
                 />
             </Styled.Navbar>

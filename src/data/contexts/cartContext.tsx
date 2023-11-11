@@ -9,7 +9,7 @@ type Product = {
     originalPrice: number
 }
 
-type CartContextProps = {
+export type CartContextProps = {
     itemQuantity: number
     setItemQuantity: React.Dispatch<React.SetStateAction<number>>
     incrementItemQuantity: () => void

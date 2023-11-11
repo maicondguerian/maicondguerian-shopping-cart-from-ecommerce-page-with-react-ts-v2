@@ -1,20 +1,29 @@
 import styled, { css, keyframes } from "styled-components";
+
+const rotateUp = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(180deg);
+    }
+`;
+const rotateDown = keyframes`
+    from {
+        transform: rotate(180deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
+`;
+
+const rotateDrop = css<NavbarProps>`
+  animation: ${props => (props.settings ? css`${rotateUp} .2s ease-in-out forwards` : css`${rotateDown} .2s ease-in-out forwards`)};
+  `;
+
 type NavbarProps = {
     settings: boolean
 }
-
-const rotateAnimation = keyframes`
-from {
-    transform: rotate(0deg);
-}
-to{
-    transform: rotate(180deg);
-}
-`;
-
-const rotateDrop = css<Pick<NavbarProps, "settings">>`
-  animation: ${props => (props.settings ? css`${rotateAnimation} 0.2s ease-in forwards` : "none")};
-`;
 export const Navbar = styled.div<NavbarProps>`
     display: flex;
     justify-content: space-around;
