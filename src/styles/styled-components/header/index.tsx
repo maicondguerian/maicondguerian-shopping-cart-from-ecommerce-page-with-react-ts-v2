@@ -148,7 +148,7 @@ export const Navbar = styled.div<NavbarProps>`
             }
         }
             li:nth-child(2){
-            >button{
+                >button{
                ${rotateDrop}
             }
         }

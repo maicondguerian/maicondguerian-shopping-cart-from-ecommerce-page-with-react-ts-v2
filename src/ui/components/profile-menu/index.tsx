@@ -11,22 +11,18 @@ export type AccountMenuProps = {
 }
 export const AccountMenu = ({ isOpen, className }: AccountMenuProps) => {
     return (
-        <>
-            <Styled.Wrapper isOpen={isOpen} className={className}>
-                <ul>
-                    <li><CustomButtom icon={HiOutlineHome} size={22} name="home" /></li>
-                    <Separator />
-                    <li><CustomButtom icon={BiUser} size={22} name="profile" /></li>
-                    <Separator />
-                    <li><CustomButtom icon={BiSun} size={22} name="theme" /></li>
-                    <Separator />
-                    <li><CustomButtom icon={FiLogOut} size={22} name="sign out" /></li>
-                </ul>
+        <Styled.Wrapper isOpen={isOpen} className={className}>
+            <ul>
+                <li><CustomButtom icon={HiOutlineHome} size={22} name="home" /></li>
+                <Separator />
+                <li><CustomButtom icon={BiUser} size={22} name="profile" /></li>
+                <Separator />
+                <li><CustomButtom icon={BiSun} size={22} name="theme" /></li>
+                <Separator />
+                <li><CustomButtom icon={FiLogOut} size={22} name="sign out" /></li>
+            </ul>
+        </Styled.Wrapper>
 
-            </Styled.Wrapper>
-            {/* {isOpen && (
-            )} */}
-        </>
     );
 };
 

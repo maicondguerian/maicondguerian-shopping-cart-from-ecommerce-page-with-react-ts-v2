@@ -6,6 +6,7 @@ type WrapperProps = Pick<AccountMenuProps, "isOpen">
 const slideIn = keyframes`
   from {
     transform: translateY(-50px);
+    opacity: 1.;
   }
   to {
     transform: translateY(0);
@@ -38,7 +39,7 @@ export const Wrapper = styled.nav<WrapperProps>`
     white-space: nowrap;
     z-index: 1000;
     background-color: ${({ theme }) => theme.colors.primaryBg};
-    
+
     ${slideInAnimation};
     
     button{

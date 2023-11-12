@@ -10,33 +10,26 @@ const fadeIn = keyframes`
     }
 
     to {
-        opacity: 1;
         transform: translateY(0px);
+        display: block;
+        opacity: 1;
     }
 `;
 const fadeOut = keyframes`
    from {
         opacity: 1;
         transform: translateY(0px);
-        display: block;
     }
 
     to {
-        opacity: 0;
         transform: translateY(-50px);
+        display: none;
+        opacity: 0;
     }
 `;
 
-// const fadeOutAnimation = css`
-//     animation: ${fadeOut} .1s ease-in-out;
-// `;
-
-// const fadeInAnimation = css`
-//     animation: ${fadeIn} .1s ease-in-out;
-// `;
-
 const fadeAnimation = css<CheckoutWrapperProps>`
-    animation: ${(props) => props.showCheckoutCartModal ? css`${fadeIn} .1s ease-in-out ` : css`${fadeOut} .1s ease-in-out `}
+    animation: ${(props) => props.showCheckoutCartModal ? css`${fadeIn} .1s ease-in-out forwards` : css`${fadeOut} .1s ease-in-out forwards`}
 `;
 
 export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
@@ -50,6 +43,7 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     border-bottom-right-radius: ${({ theme }) => theme.spacing.sm};
     box-shadow: 0 1rem 1.625rem rgb(31 50 81 / 22%); 
     background-color: ${({ theme }) => theme.colors.primaryBg};
+    z-index: 100;
 
     @media screen and (max-width: 1111px) {
         margin-left: 3vw !important;
@@ -57,9 +51,6 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
             line-height: unset;
         }
     }
-    z-index: 100;
-    
-
 
     ${fadeAnimation};
 
