@@ -9,12 +9,13 @@ import { PiTrashDuotone } from "react-icons/pi";
 import { ChangeImageButtom as TrashButtom } from "../product-iimages/gallery-imeges-modal";
 
 type CartCheckoutProps = {
-    className: string
+    className?: string
     showCheckoutCartModal: boolean
 }
 
 export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutProps) {
     const context = useCart();
+
     return (
         <>
             {

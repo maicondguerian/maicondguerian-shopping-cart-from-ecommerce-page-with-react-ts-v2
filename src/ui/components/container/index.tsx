@@ -1,4 +1,4 @@
-import { useMediaQueries } from "@/src/data/contexts/MediaQueries";
+import { useMediaQueries } from "@/src/data/contexts/mediaQueries";
 import { Styled } from "@styles/";
 
 type ContainerProps = {

@@ -3,7 +3,7 @@ import Container from "@ui/container";
 import { Outlet } from "react-router-dom";
 import Header from "./ui/components/header";
 import { useCart } from "./data/contexts/cartContext";
-import { useMediaQueries } from "./data/contexts/MediaQueries";
+import { useMediaQueries } from "./data/contexts/mediaQueries";
 import { Footer } from "./ui/components/footer";
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
       onClick={() => {
         context.setShowCheckoutCartModal(false);
         querieContext.setShowMediaQuerieSideMenu(false);
+        querieContext.setShowProfileMenu(false);
       }}>
       <Header />
       <Outlet />

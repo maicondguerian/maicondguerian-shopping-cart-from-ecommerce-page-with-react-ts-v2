@@ -10,16 +10,15 @@ import ShoppingCart from "@/src/ui/components/cart-buttom";
 import { useCart } from "@/src/data/contexts/cartContext";
 import { CartCheckout } from "../cart-check-out";
 import SidebarHeader from "./sidebar-header";
-import { useMediaQueries } from "@/src/data/contexts/MediaQueries";
+import { useMediaQueries } from "@/src/data/contexts/mediaQueries";
 import { IoIosArrowDown } from "react-icons/io";
-import AccountMenu from "../profile-menu";
+import AccountMenu from "@ui/profile-menu";
 import CustomButtom from "@ui/CustomButtom";
 
 export default function Header() {
     const context = useCart();
     const mediaContext = useMediaQueries();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
-    const [settings, setSettings] = React.useState(false);
 
     React.useEffect(() => {
         if (context.cartQuantity !== prevCartQuantity) {
@@ -34,10 +33,10 @@ export default function Header() {
 
     return (
         <>
-            <Styled.Navbar settings={settings}>
+            <Styled.Navbar settings={mediaContext.showProfileMenu}>
                 <SidebarHeader
                     className={mediaContext.showMediaQuerieSideMenu ? "toggleOpenSideBar" : "toggleCloseSideBar"}
-                    isOpen={mediaContext.showMediaQuerieSideMenu && mediaContext.showMobileImageDisplay}
+                    isOpen={mediaContext.showMediaQuerieSideMenu}
                     onClick={(event) => event.stopPropagation()}
                 >
                     <MenuLinks />
@@ -69,17 +68,19 @@ export default function Header() {
                         <CustomButtom
                             icon={IoIosArrowDown}
                             size={21}
-                            onClick={() => setSettings((prevState) => !prevState)}
+                            onClick={(event) => {
+                                event.stopPropagation();
+                                mediaContext.setShowProfileMenu((prevState) => !prevState);
+                            }}
                         />
                         <AccountMenu
-                            isOpen={settings}
-                            className={settings ? "aberto" : "fechado"}
+                            isOpen={mediaContext.showProfileMenu}
                         />
                     </li>
                 </ul>
                 <CartCheckout
                     showCheckoutCartModal={context.showCheckoutCartModal}
-                    className={context.showCheckoutCartModal ? "toggleOpenCheckoutCart" : "toggleHideCheckoutCart"}
+
                 />
             </Styled.Navbar>
             <Separator width="70%" align="center" />

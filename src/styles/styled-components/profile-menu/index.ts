@@ -29,7 +29,6 @@ const slideInAnimation = css<WrapperProps>`
 `;
 
 export const Wrapper = styled.nav<WrapperProps>`
-
     width: auto;
     border: 1px solid rgb(219, 229, 230);
     border-radius: .3rem;

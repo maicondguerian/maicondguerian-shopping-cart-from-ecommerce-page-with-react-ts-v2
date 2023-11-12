@@ -6,6 +6,8 @@ type MediaQueriesContextProps = {
     toggleSideMenu: () => void
     setShowMobileImageDisplay: React.Dispatch<React.SetStateAction<boolean>>
     showMobileImageDisplay: boolean,
+    showProfileMenu: boolean,
+    setShowProfileMenu: React.Dispatch<React.SetStateAction<boolean>>
 }
 const MediaQueriesContext = React.createContext({} as MediaQueriesContextProps);
 type MediaQueriesProviderProps = {
@@ -14,6 +16,7 @@ type MediaQueriesProviderProps = {
 export function MediaQueriesProvider({ children }: MediaQueriesProviderProps) {
     const [showMediaQuerieSideMenu, setShowMediaQuerieSideMenu] = React.useState(false);
     const [showMobileImageDisplay, setShowMobileImageDisplay] = React.useState(false);
+    const [showProfileMenu, setShowProfileMenu] = React.useState(false);
 
     React.useEffect(() => {
 
@@ -46,6 +49,8 @@ export function MediaQueriesProvider({ children }: MediaQueriesProviderProps) {
             toggleSideMenu,
             setShowMobileImageDisplay,
             showMobileImageDisplay,
+            showProfileMenu,
+            setShowProfileMenu
         }}>
             {children}
         </MediaQueriesContext.Provider>

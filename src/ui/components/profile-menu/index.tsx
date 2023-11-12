@@ -9,9 +9,12 @@ export type AccountMenuProps = {
     isOpen: boolean,
     className?: string
 }
-export const AccountMenu = ({ isOpen, className }: AccountMenuProps) => {
+export function AccountMenu({ isOpen, className }: AccountMenuProps) {
     return (
-        <Styled.Wrapper isOpen={isOpen} className={className}>
+        <Styled.Wrapper
+            isOpen={isOpen}
+            className={className}
+        >
             <ul>
                 <li><CustomButtom icon={HiOutlineHome} size={22} name="home" /></li>
                 <Separator />
@@ -24,6 +27,6 @@ export const AccountMenu = ({ isOpen, className }: AccountMenuProps) => {
         </Styled.Wrapper>
 
     );
-};
+}
 
 export default AccountMenu;

@@ -7,7 +7,7 @@ import { ThemeProvider } from "styled-components";
 import { LightTheme } from "./styles";
 import { CartProvider } from "./data/contexts/cartContext";
 import HomePage from "./pages/home";
-import { MediaQueriesProvider } from "./data/contexts/MediaQueries";
+import { MediaQueriesProvider } from "./data/contexts/mediaQueries";
 
 const router = createBrowserRouter([
   {

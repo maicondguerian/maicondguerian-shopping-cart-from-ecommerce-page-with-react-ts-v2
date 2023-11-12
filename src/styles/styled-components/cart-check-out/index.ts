@@ -5,8 +5,8 @@ type CheckoutWrapperProps = Pick<CartContextProps, "showCheckoutCartModal">
 
 const fadeIn = keyframes`
     from {
-        opacity: 0;
         transform: translateY(-50px);
+        opacity: .1;
     }
 
     to {
@@ -24,12 +24,12 @@ const fadeOut = keyframes`
     to {
         transform: translateY(-50px);
         display: none;
-        opacity: 0;
+        opacity: .1;
     }
 `;
 
 const fadeAnimation = css<CheckoutWrapperProps>`
-    animation: ${(props) => props.showCheckoutCartModal ? css`${fadeIn} .1s ease-in-out forwards` : css`${fadeOut} .1s ease-in-out forwards`}
+    animation: ${(props) => props.showCheckoutCartModal ? css`${fadeIn} .1s ease-in-out forwards` : css`${fadeOut} .1s ease-in-out forwards`};
 `;
 
 export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
