@@ -3,7 +3,6 @@ import { ImageRenderer } from "../image-renderer";
 import { AddToCartButtom } from "../quantity-counter-button";
 import { useCart } from "@/src/data/contexts/cartContext";
 import { Styled } from "@/src/styles";
-import { galleryImages } from "../product-iimages/gallery-images";
 import { PriceFormatter } from "@/src/data/utils/price-formatter";
 import { PiTrashDuotone } from "react-icons/pi";
 import { ChangeImageButtom as TrashButtom } from "../product-iimages/gallery-imeges-modal";
@@ -35,7 +34,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                             {context.productCartList.map((elem) => (
                                 <section key={elem.id}>
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].fullSizedImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -44,7 +43,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -53,7 +52,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -62,7 +61,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -71,7 +70,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -80,7 +79,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -89,7 +88,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -98,7 +97,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -107,7 +106,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -116,7 +115,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -125,7 +124,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -134,7 +133,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
@@ -143,7 +142,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                     </ul>
                                     <Separator width="100%" />
                                     <ul>
-                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
                                         <ul>
                                             <li>{elem.title}</li>
                                             <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>

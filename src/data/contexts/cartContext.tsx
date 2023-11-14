@@ -7,6 +7,7 @@ type Product = {
     title: string
     price: number
     originalPrice: number
+    productImage: string
 }
 
 export type CartContextProps = {
@@ -29,7 +30,7 @@ type CartProviderProps = {
 
 export function CartProvider({ children }: CartProviderProps) {
     const [itemQuantity, setItemQuantity] = React.useState(0);
-    const [productCartList, setProductCartList] = React.useState<Product[]>([]);
+    const [productCartList, setProductCartList] = React.useState<Product[]>([{ id: 10, price: 735.00, quantity: 2, title: "iPhone11", productImage: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQQ1ylVrNN8l2tSx4s-NdfZGxXMkrNzryD98fOpt09jqlhmHDffnulI-7NIPXjxZeRfPdt5EnXm0_wj7fxMuAXKR_gaF9qDP0K2Nn626a0Cb4pciY3RuygLXAOzZhGG0Hh7xVKTpR8&usqp=CAc" }]);
     const [showCheckoutCartModal, setShowCheckoutCartModal] = React.useState(false);
 
     function addProductToCart() {
@@ -52,7 +53,8 @@ export function CartProvider({ children }: CartProviderProps) {
                     title,
                     quantity: itemQuantity,
                     price: PRODUCT.price * itemQuantity,
-                    originalPrice: 125
+                    originalPrice: 125,
+                    productImage: ""
                 }
             ]);
         }

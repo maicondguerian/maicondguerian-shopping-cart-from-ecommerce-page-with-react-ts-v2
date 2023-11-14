@@ -98,7 +98,7 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
             ul{
                 display: flex;
                 align-items: center;
-                gap: 1rem;
+                gap: 0 1rem;
                 height: 70px;
                 width: 100%;
 
