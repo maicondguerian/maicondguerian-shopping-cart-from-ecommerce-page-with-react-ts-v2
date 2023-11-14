@@ -31,9 +31,18 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                         {context.cartQuantity === 0 && (
                             <p>Your cart is empty</p>
                         )}
-                        <div>
+                        <>
                             {context.productCartList.map((elem) => (
                                 <section key={elem.id}>
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].fullSizedImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
                                     <ul>
                                         <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
                                         <ul>
@@ -42,12 +51,112 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                                         </ul>
                                         <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
                                     </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
+                                    <ul>
+                                        <li><ImageRenderer path={galleryImages[0].thumbnailImage} width={70} /></li>
+                                        <ul>
+                                            <li>{elem.title}</li>
+                                            <li>{PriceFormatter.format(elem.price / elem.quantity)} x {elem.quantity} <strong>{PriceFormatter.format(elem.price)}</strong></li>
+                                        </ul>
+                                        <li><TrashButtom onClick={() => context.setProductCartList([])} icon={PiTrashDuotone} size={23} /> </li>
+                                    </ul>
+                                    <Separator width="100%" />
                                     <AddToCartButtom
                                         name={"checkout"}
                                     />
                                 </section>
                             ))}
-                        </div>
+                        </>
                     </div>
                 </Styled.CheckoutWrapper>
 

@@ -7,11 +7,13 @@ declare module "styled-components" {
             darkGrayishBlue: string;
             grayishBlue: string;
             lightGrayishBlue: string;
+            sillyGray: string,
             white: string;
             blackWith75OpacityForLightboxBackground: string;
             orange: string;
             PaleOrange: string,
-            primaryBg: string
+            primaryBg: string,
+            overlayBackground: string
         },
         font: {
             primary: string;

@@ -56,7 +56,6 @@ export const Navbar = styled.div<NavbarProps>`
 
             .currentPage{
                 border-bottom: solid 4px ${({ theme }) => theme.colors.orange};
-                color: ${({ theme }) => theme.colors.veryDarkBlue};
             }
         }
         ul{
@@ -72,10 +71,8 @@ export const Navbar = styled.div<NavbarProps>`
                 color: ${({ theme }) => theme.colors.darkGrayishBlue};
                 position: relative;
                 cursor: pointer;
-            }
-
-  
-        }
+            }  
+      }
 
         ul:nth-child(1){
             li:first-child{
@@ -94,10 +91,10 @@ export const Navbar = styled.div<NavbarProps>`
                     position: absolute;
                     width: 100%;
                     height: 3px;
-                    background-color: ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground};
+                    background-color: ${({ theme }) => theme.font.primary};
                     padding: 0;
-                    box-shadow: 0 -10px ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground},
-                     0 10px ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground};
+                    box-shadow: 0 -10px ${({ theme }) => theme.font.primary},
+                     0 10px ${({ theme }) => theme.font.primary};
                 }
 
             }
@@ -120,7 +117,6 @@ export const Navbar = styled.div<NavbarProps>`
             ul:nth-child(2){
                 display: none;
             }
-            
         }
     }
 
@@ -181,7 +177,6 @@ export const SideMenu = styled.div`
         color: ${({ theme }) => theme.colors.veryDarkBlue};
         
     }
-
 
     @media screen and (max-width: 1111px) {
         /* display: none; */

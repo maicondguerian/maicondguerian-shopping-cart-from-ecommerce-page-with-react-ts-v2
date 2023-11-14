@@ -1,11 +1,10 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { ShoppingCartProps } from "@/src/ui/components/cart-buttom";
 
 export const Cart = styled.button`
     position: relative;
     border: transparent;
     background-color: transparent;
-    cursor: pointer;
 `;
 
 const jump = keyframes`
@@ -17,6 +16,10 @@ const jump = keyframes`
     to {
         transform: translateY(-10px);
     }
+`;
+
+const jumpAnimation = css`
+    animation: ${css`${jump} .5s ease-in-out `} 
 `;
 
 type CartBadgeProps = Pick<ShoppingCartProps, "isCartEmpty">
@@ -33,7 +36,7 @@ export const CartBadge = styled.span<CartBadgeProps>`
     position: absolute;
     top: -5px;
     right: -7px;
-    animation: ${jump} 0.5s ease-in-out;
+    ${jumpAnimation};
 `;
 CartBadge.shouldForwardProp = (prop) => prop !== "isCartEmpty";
 

@@ -25,7 +25,7 @@ export const Footer = styled.section`
             flex: 1 1 300px;
             text-align: center;
             font-size: 14px;
-            gap: ${({ theme }) => theme.colors.darkGrayishBlue}
+            /* gap: ${({ theme }) => theme.colors.darkGrayishBlue} */
         }
 
         ul{

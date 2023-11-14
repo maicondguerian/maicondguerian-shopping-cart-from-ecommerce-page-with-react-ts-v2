@@ -7,6 +7,10 @@ export const Modal = styled.div`
 
     section:first-of-type{
         position: relative;
+
+        button{
+            background-color: ${({ theme }) => theme.colors.primaryBg};
+        }
         button:nth-child(1){
             position: absolute;
             left: -30px;
@@ -101,7 +105,7 @@ export const Overlay = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0,.4);
+    background-color: ${({ theme }) => theme.colors.overlayBackground};
     display: flex;
     align-items: center;
     justify-content: center;

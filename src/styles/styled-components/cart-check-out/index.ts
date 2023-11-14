@@ -38,15 +38,17 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     top: 90px;
     width: 400px;
     max-width: 95vw;
-    height: 240px;
     border-bottom-left-radius: ${({ theme }) => theme.spacing.sm};
     border-bottom-right-radius: ${({ theme }) => theme.spacing.sm};
     box-shadow: 0 1rem 1.625rem rgb(31 50 81 / 22%); 
     background-color: ${({ theme }) => theme.colors.primaryBg};
+    border: solid 1px ${({ theme }) => theme.colors.sillyGray};
+    /* display: ${(props) => props.showCheckoutCartModal ? "block" : "none"}; */
     z-index: 100;
 
     @media screen and (max-width: 1111px) {
-        margin-left: 3vw !important;
+        box-shadow: none;
+        /* margin-left: 3vw !important; */
         li{
             line-height: unset;
         }
@@ -63,78 +65,91 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     
     >div:last-of-type{
         height: 180px;
-        padding: 1rem;
-        position: relative;
-        display: flex;
-        color: ${({ theme }) => theme.colors.darkGrayishBlue};
-                justify-content: center;
-                align-items: center;
+        padding: .5rem 0 ;
+        overflow: auto;
+
         p{
             font-weight: 600;
+            display: grid;
+            place-items: center;
+            height: 100%;
         }
-        
-        >div:nth-child(1){
-            section{
+    
+        section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: ${({ theme }) => theme.spacing.sm};
+
+            button:nth-child(1){
+                background-color: transparent;
+                border-radius: unset;
+                height: 30px;
+                box-shadow: none;
+
+                &{
+                :hover{
+                    color: unset;
+                }
+                }
+            }
+
+            ul{
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: ${({ theme }) => theme.spacing.lg};
+                align-items: center;
+                gap: 1rem;
+                height: 70px;
+                width: 100%;
 
-                button:nth-child(1){
-                   background-color: transparent;
-                   border-radius: unset;
-                   height: 30px;
-                   box-shadow: none;
+                &:hover{
+                    transition: .1s ease-out;
+                    background-color: ${({ theme }) => theme.colors.lightGrayishBlue};
+                    border-radius: .2rem;
+                }
 
-
-                   &{
-                    :hover{
-                        color: unset;
+                li{
+                    text-transform: capitalize;
+                    img{
+                        border-radius: .1rem;
+                        height: 100%;
+                        margin-top: 4px;
+                        overflow: hidden;
                     }
-                   }
+                }
+
+                >li:nth-child(2){
+                    text-transform: lowercase;
                 }
 
                 ul{
                     display: flex;
-                    align-items: center;
-                    gap: 1rem;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+
                     li{
-                        text-transform: capitalize;
-                        img{
-                            border-radius: 5px;
+                        word-spacing: 2px;
+
+                        strong{
+                            font-style: oblique;
+                            color: ${({ theme }) => theme.font.primary};
                         }
                     }
-    
-                    >li:nth-child(2){
-                        text-transform: lowercase;
-                    }
-    
-                    ul{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
-                        li{
-                            
-                            word-spacing: 2px;
-                            strong{
-                                font-size: 18px;
-                                color: ${({ theme }) => theme.colors.blackWith75OpacityForLightboxBackground};
-                            }
-                        }
-                    }
-                }
-
-                button{
-                    box-shadow: unset;
-                    width: 100%;
-                    text-transform: capitalize;
-                    box-shadow: 0 0.063rem 0.188rem rgb(31 50 81 / 12%), 0 0.063rem 0.125rem rgb(31 50 81 / 24%);
-
-                    
                 }
             }
+
+            button{
+                box-shadow: unset;
+                width: 100%;
+                text-transform: capitalize;
+                box-shadow: 0 0.063rem 0.188rem rgb(31 50 81 / 12%), 0 0.063rem 0.125rem rgb(31 50 81 / 24%);
+
+                
+            }
         }
+        
     }
-    `;
+`;
 
 CheckoutWrapper.shouldForwardProp = (prop) => prop !== "isCheckoutCartOpen";

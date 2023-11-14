@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     }
     
     a{
-        color: inherit;
+        color: ${({ theme }) => theme.font.primary};
         text-decoration: none;
     }
     
@@ -34,5 +34,8 @@ export const GlobalStyles = createGlobalStyle`
     {
         cursor: pointer;
     }
-    
+
+    button{
+        color: ${({ theme }) => theme.font.primary};
+    }
 `;

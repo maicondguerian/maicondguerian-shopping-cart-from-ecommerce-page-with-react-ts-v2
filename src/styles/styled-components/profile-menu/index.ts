@@ -30,16 +30,17 @@ const slideInAnimation = css<WrapperProps>`
 
 export const Wrapper = styled.nav<WrapperProps>`
     width: auto;
-    border: 1px solid rgb(219, 229, 230);
+    border: 1.3px solid  ${({ theme }) => theme.colors.sillyGray};
     border-radius: .3rem;
     position: absolute;
     top: 7vh;
-    /* right: 0; */
     white-space: nowrap;
     z-index: 1000;
     background-color: ${({ theme }) => theme.colors.primaryBg};
 
     ${slideInAnimation};
+
+    /* display: ${(props) => props.isOpen ? "block" : "none"}; */
     
     button{
       color: inherit;
@@ -48,25 +49,48 @@ export const Wrapper = styled.nav<WrapperProps>`
       font-family: inherit;
       font-size: 12px;
       text-transform: uppercase;
+      padding: .9rem;
+      width: 100%;
+
     }
 
     li{
-        padding: .9rem 1.5rem .9rem;
-        display: flex;
-        gap: .5rem;
-        align-items: center;
-        
-        
-    }
-    li:hover{
-        transition: .1s ease-out;
-        background-color: ${({ theme }) => theme.colors.lightGrayishBlue}
+      /* padding: .9rem; */
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      justify-content: center;
     }
 
-    li:last-of-type{
-      button{
+    li:hover{
+      transition: .1s ease-out;
+      background-color: ${({ theme }) => theme.colors.lightGrayishBlue};
+    }
+
+  >ul:first-of-type{
+    >li:last-of-type{
+      >button{
         color: red;
         font-style: italic;
       }
     }
+    ul:last-of-type{
+      position: absolute;
+      right: -99px;
+      top: 104px;
+      border: 1.3px solid  ${({ theme }) => theme.colors.sillyGray};
+      border-radius: .3rem;
+      background-color: ${({ theme }) => theme.colors.primaryBg};
+
+      &::before{
+        content: '';
+        position: absolute;
+        height: 50px;
+        background-color: transparent;
+        width: 4px;
+        left: -4px;
+      }
+    }
+
+  }
 `;

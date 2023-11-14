@@ -1,15 +1,18 @@
 // import { ImageRenderer } from "../image-renderer";
 import { Styled } from "@/src/styles";
 import Separator from "../separador";
-import { ImageRenderer } from "../image-renderer";
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from "react-icons/ti";
+import { useMediaQueries } from "@/src/data/contexts/mediaQueries";
+import { Logo } from "../header/svg-treatment";
 
 export function Footer() {
+    const mediaContext = useMediaQueries();
+
     return (
         <Styled.Footer>
-            <Separator width="70%" align="center" />
+            <Separator width={mediaContext.showMobileImageDisplay ? "100%" : "70%"} align="center" />
             <div>
-                <span> <ImageRenderer path={"/src/assets/logo.svg"} width={100} /></span>
+                <span> <Logo width={100} /></span>
                 <span>© Copyright 2023 Sneakers. All rights reserved.</span>
                 <Socials />
             </div>

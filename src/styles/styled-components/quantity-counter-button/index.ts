@@ -25,5 +25,6 @@ button{
 span{
     font-weight: 600;
     font-size: 19px;
+    color: ${({ theme }) => theme.font.primary} !important;
 }
 `;

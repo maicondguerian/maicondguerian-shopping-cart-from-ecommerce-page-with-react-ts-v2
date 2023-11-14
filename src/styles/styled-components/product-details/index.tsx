@@ -16,6 +16,11 @@ export const ProductWrapper = styled.section`
     h1{ 
         font-size: 50px;
         text-transform: capitalize;
+        color: ${({ theme }) => theme.font.primary};
+    }
+    
+    >p{
+        color: ${({ theme }) => theme.colors.darkGrayishBlue};
     }
 
     div{
@@ -24,16 +29,18 @@ export const ProductWrapper = styled.section`
         align-items: center;
 
         p:first-of-type{
-            font-size: 24px;
+            font-size: 34px;
             font-weight: 700;
         }
+
         p:last-of-type{
-          background-color: ${({ theme }) => theme.colors.PaleOrange};
+            background-color: ${({ theme }) => theme.colors.PaleOrange};
           padding: .2rem .5rem;
           color: ${({ theme }) => theme.colors.orange};
           font-size: 15px;
           font-weight: 700;
           border-radius: 5px;
+          font-size: 34px;
         }
     }
 
@@ -69,9 +76,6 @@ export const ProductWrapper = styled.section`
         }
     }
     
-    >p:first-of-type{
-        color: ${({ theme }) => theme.colors.darkGrayishBlue};
-    }
 
     @media screen and (max-width: 1111px){
         width: 100vw;

@@ -3,11 +3,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import App from "@src/App";
 import Colections from "@src/pages/collecitons";
-import { ThemeProvider } from "styled-components";
-import { LightTheme } from "./styles";
 import { CartProvider } from "./data/contexts/cartContext";
 import HomePage from "./pages/home";
 import { MediaQueriesProvider } from "./data/contexts/mediaQueries";
+import { ThemeProvider } from "./data/contexts/themeContext";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +28,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ThemeProvider theme={LightTheme}>
+    <ThemeProvider>
       <CartProvider>
         <MediaQueriesProvider>
           <RouterProvider router={router} />

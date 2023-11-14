@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { SeparatorProps } from "@ui/separador";
+import { darken } from "polished";
 
 type CenteredSeparatorContainerProps = Pick<SeparatorProps, "mb">
 export const CenteredSeparatorContainer = styled.div<CenteredSeparatorContainerProps>`
@@ -13,9 +14,9 @@ CenteredSeparatorContainer.shouldForwardProp = (props) => props !== "mb";
 
 export const Separator = styled.hr<StyledSeparatorProps>`
     height: 1.2px;
-    background-color: ${({ theme }) => theme.colors.grayishBlue};
-    /* border: transparent; */
-    opacity: .3;
+    background-color: ${({ theme }) => darken(.0, theme.colors.sillyGray)};
+    border: transparent;
+    /* opacity: .3; */
     width: ${(props) => (props.width ? props.width : "100%")};
     align-self: ${(props) => (props.align === "start" ? "flex-start" : props.align === "center" ? "center" : props.align === "end" ? "flex-end" : "center")};
     

@@ -5,7 +5,6 @@ import Separator from "@ui/separador";
 import usePath from "@src/data/custom-hooks/usePath";
 import { ImageRenderer } from "@ui/image-renderer";
 import avatar from "@src/assets/image-avatar.png";
-import logo from "@/src/assets/logo.svg";
 import ShoppingCart from "@/src/ui/components/cart-buttom";
 import { useCart } from "@/src/data/contexts/cartContext";
 import { CartCheckout } from "../cart-check-out";
@@ -14,12 +13,18 @@ import { useMediaQueries } from "@/src/data/contexts/mediaQueries";
 import { IoIosArrowDown } from "react-icons/io";
 import AccountMenu from "@ui/profile-menu";
 import CustomButtom from "@ui/CustomButtom";
+import { HiOutlineHome } from "react-icons/hi";
+import { BiSolidMoon, BiSun, BiUser } from "react-icons/bi";
+import { FiLogOut } from "react-icons/fi";
+import { useTheme } from "@/src/data/contexts/themeContext";
+import { Logo } from "./svg-treatment";
 
 export default function Header() {
     const context = useCart();
     const mediaContext = useMediaQueries();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
-
+    const [showMenuTheme, setShowMenuTheme] = React.useState(false);
+    const contextTheme = useTheme();
     React.useEffect(() => {
         if (context.cartQuantity !== prevCartQuantity) {
             setPrevCartQuantity(context.cartQuantity);
@@ -48,7 +53,9 @@ export default function Header() {
                             event.stopPropagation();
                         }} />
                         <li>
-                            <Link to={"/"}><ImageRenderer path={logo} /></Link>
+                            <Link to={"/"}>
+                                <Logo />
+                            </Link>
                         </li>
                     </ul>
                     <MenuLinks />
@@ -75,7 +82,33 @@ export default function Header() {
                         />
                         <AccountMenu
                             isOpen={mediaContext.showProfileMenu}
-                        />
+                        >
+                            <ul>
+                                <li><CustomButtom icon={HiOutlineHome} size={22} name="home" /></li>
+                                <Separator />
+                                <li><CustomButtom icon={BiUser} size={22} name="profile" /></li>
+                                <Separator />
+                                <li
+                                    onMouseEnter={() => setShowMenuTheme(true)}
+                                    onMouseLeave={() => setShowMenuTheme(false)}
+                                >
+                                    <CustomButtom icon={BiSun} size={22} name="theme" />
+                                </li>
+                                <Separator />
+                                <li><CustomButtom icon={FiLogOut} size={22} name="sign out" /></li>
+                                {showMenuTheme && (
+                                    <ul
+                                        onMouseEnter={() => setShowMenuTheme(true)}
+                                        onMouseLeave={() => setShowMenuTheme(false)}
+                                    >
+                                        <li><CustomButtom icon={BiSolidMoon} size={22} name="dark" onClick={contextTheme.toggleDark} /></li>
+                                        <Separator />
+                                        <li><CustomButtom icon={BiSun} size={22} name="light" onClick={contextTheme.toggleLight} /></li>
+                                    </ul>
+                                )}
+                            </ul>
+                        </AccountMenu>
+
                     </li>
                 </ul>
                 <CartCheckout
