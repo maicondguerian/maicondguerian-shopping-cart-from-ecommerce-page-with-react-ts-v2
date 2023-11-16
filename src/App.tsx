@@ -1,12 +1,12 @@
 import { GlobalStyles } from "@styles/";
-import Container from "@ui/container";
-import { Outlet } from "react-router-dom";
-import Header from "./ui/components/header";
-import { useCart } from "./data/contexts/cartContext";
-import { useMediaQueries } from "./data/contexts/mediaQueries";
-import { Footer } from "./ui/components/footer";
 import { ThemeProvider } from "styled-components";
-import { useTheme } from "./data/contexts/themeContext";
+import { Outlet } from "react-router-dom";
+import Container from "@ui/container";
+import { Header } from "@ui/header";
+import { useCart } from "@src/data/contexts/cartContext";
+import { useMediaQueries } from "@src/data/contexts/mediaQueries";
+import { Footer } from "@ui/footer";
+import { useTheme } from "@src/data/contexts/themeContext";
 
 function App() {
   const context = useCart();

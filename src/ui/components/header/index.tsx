@@ -19,7 +19,7 @@ import { FiLogOut } from "react-icons/fi";
 import { useTheme } from "@/src/data/contexts/themeContext";
 import { Logo } from "./svg-treatment";
 
-export default function Header() {
+export function Header() {
     const context = useCart();
     const mediaContext = useMediaQueries();
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);

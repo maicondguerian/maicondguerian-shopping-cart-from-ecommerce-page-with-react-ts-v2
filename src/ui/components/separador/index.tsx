@@ -4,7 +4,7 @@ export type SeparatorProps = {
     width?: "30%" | "60%" | "70%" | "90%" | "100%"
     align?: "start" | "center" | "end"
     mb?: string
-    style?: string
+    style?: Record<string, string>
 }
 
 export default function Separator({ width, mb = "0", align, style }: SeparatorProps) {

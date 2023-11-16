@@ -14,47 +14,48 @@ type CartCheckoutProps = {
 
 export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutProps) {
     const context = useCart();
+
+    const getSubTotal = context.productCartList.reduce((acc, curr) => acc + curr.price, 0);
     return (
-        <>
-            {
-
-                <Styled.CheckoutWrapper
-                    showCheckoutCartModal={showCheckoutCartModal}
-                    onClick={(event) => event.stopPropagation()}
-                    className={className}
-                >
-                    <span>Cart</span>
-                    <Separator mb="0" />
-                    <div>
-                        {context.cartQuantity === 0 && (
-                            <p>Your cart is empty</p>
-                        )}
-                        <>
-                            {context.productCartList.map((elem, i) => (
-                                <section key={elem.id}>
-                                    <ul>
-                                        <li><ImageRenderer path={elem.productImage} width={70} /></li>
-                                        <ul>
-                                            <li>{elem.title}</li>
-                                            <li>{PriceFormatter(elem.price)} x {elem.quantity} <strong>{PriceFormatter(elem.price * elem.quantity)}</strong></li>
-                                        </ul>
-                                        <li><TrashButtom onClick={() => context.removeProductFromCart(i)} icon={AiOutlineDelete} size={23} /> </li>
-                                    </ul>
-                                    <section>
-                                        <div>subtotal:</div>
-                                        <div>{PriceFormatter(elem.price * elem.quantity)}</div>
-                                    </section>
-                                    <Separator width="100%" />
-                                    <AddToCartButtom
-                                        name={"checkout"}
-                                    />
-                                </section>
-                            ))}
-                        </>
-                    </div>
-                </Styled.CheckoutWrapper >
-
-            }
-        </>
+        <Styled.CheckoutWrapper
+            showCheckoutCartModal={showCheckoutCartModal}
+            onClick={(event) => event.stopPropagation()}
+            className={className}
+        >
+            <span>Cart</span>
+            <Separator mb="0" />
+            <div>
+                {context.cartQuantity === 0 && (
+                    <p>Your cart is empty</p>
+                )}
+                <>
+                    {context.productCartList.map((elem, i) => (
+                        <section key={elem.id}>
+                            <ul>
+                                <li><ImageRenderer path={elem.productImage} width={70} /></li>
+                                <ul>
+                                    <li>{elem.title}</li>
+                                    <li>{PriceFormatter(elem.price)} x {elem.quantity} <strong>{PriceFormatter(elem.price * elem.quantity)}</strong></li>
+                                </ul>
+                                <li><TrashButtom onClick={() => context.removeProductFromCart(i)} icon={AiOutlineDelete} size={23} /> </li>
+                            </ul>
+                            <Separator width="100%" />
+                        </section>
+                    ))}
+                    {context.productCartList.length > 0 && (
+                        <div>
+                            <section>
+                                <div>subtotal:</div>
+                                <div>{PriceFormatter(getSubTotal)}</div>
+                            </section>
+                            <Separator width="100%" style={{ width: "calc(100% + 1rem)" }} />
+                            <AddToCartButtom
+                                name={"checkout"}
+                            />
+                        </div>
+                    )}
+                </>
+            </div>
+        </Styled.CheckoutWrapper >
     );
 }

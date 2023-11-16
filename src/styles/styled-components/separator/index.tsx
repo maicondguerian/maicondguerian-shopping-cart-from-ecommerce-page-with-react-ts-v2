@@ -13,7 +13,7 @@ type StyledSeparatorProps = SeparatorProps
 CenteredSeparatorContainer.shouldForwardProp = (props) => props !== "mb";
 
 export const Separator = styled.hr<StyledSeparatorProps>`
-    height: 1.2px;
+    height: 1.1px;
     background-color: ${({ theme }) => darken(.0, theme.colors.sillyGray)};
     border: transparent;
     /* opacity: .3; */

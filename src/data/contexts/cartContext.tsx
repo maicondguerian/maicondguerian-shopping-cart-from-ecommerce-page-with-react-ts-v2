@@ -31,7 +31,7 @@ type CartProviderProps = {
 
 export function CartProvider({ children }: CartProviderProps) {
     const [itemQuantity, setItemQuantity] = React.useState(0);
-    const [productCartList, setProductCartList] = React.useState<Product[]>([{ id: 10, price: 2735.00, quantity: 5, title: "iPhone11", productImage: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQQ1ylVrNN8l2tSx4s-NdfZGxXMkrNzryD98fOpt09jqlhmHDffnulI-7NIPXjxZeRfPdt5EnXm0_wj7fxMuAXKR_gaF9qDP0K2Nn626a0Cb4pciY3RuygLXAOzZhGG0Hh7xVKTpR8&usqp=CAc" }]);
+    const [productCartList, setProductCartList] = React.useState<Product[]>([{ id: 10, originalPrice: 3000.00, price: 2735.00, quantity: 1, title: "iPhone11", productImage: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQQ1ylVrNN8l2tSx4s-NdfZGxXMkrNzryD98fOpt09jqlhmHDffnulI-7NIPXjxZeRfPdt5EnXm0_wj7fxMuAXKR_gaF9qDP0K2Nn626a0Cb4pciY3RuygLXAOzZhGG0Hh7xVKTpR8&usqp=CAc" }, { id: 11, originalPrice: 3000.00, price: 2735.00, quantity: 1, title: "iPhone11", productImage: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQQ1ylVrNN8l2tSx4s-NdfZGxXMkrNzryD98fOpt09jqlhmHDffnulI-7NIPXjxZeRfPdt5EnXm0_wj7fxMuAXKR_gaF9qDP0K2Nn626a0Cb4pciY3RuygLXAOzZhGG0Hh7xVKTpR8&usqp=CAc" }]);
     const [showCheckoutCartModal, setShowCheckoutCartModal] = React.useState(false);
 
     function addProductToCart() {

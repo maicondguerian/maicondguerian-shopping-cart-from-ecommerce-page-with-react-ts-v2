@@ -58,8 +58,11 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     
     >div:last-of-type{
         height: 190px;
-        padding: .5rem;
+        padding: .7rem;
         overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: ${({ theme }) => theme.spacing.sm};
 
         p{
             font-weight: 600;
@@ -73,7 +76,7 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
-            gap: ${({ theme }) => theme.spacing.sm};
+            gap: calc(${({ theme }) => theme.spacing.sm} + 2px);
             height: 100%;
 
             button:nth-child(1){
@@ -140,23 +143,31 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
                 width: 100%;
                 text-transform: capitalize;
                 box-shadow: 0 0.063rem 0.188rem rgb(31 50 81 / 12%), 0 0.063rem 0.125rem rgb(31 50 81 / 24%);
-                
             }
 
-            section:nth-child(2){
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                margin-top: .5rem;
-                
-                div:nth-child(2){
-                    font-weight: 600;
-                    font-size: 17px;
-                }
-            }
-
-        
+            
+            
         }
+        >div:last-of-type{
+            display: flex;
+            flex-direction: column;
+            gap: ${({ theme }) => theme.spacing.sm};
+
+            button{
+                width: 100%;
+            }
+          section{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+          }
+            
+            div:nth-child(2){
+                font-weight: 500;
+                font-size: 20px;
+            } 
+        } 
         
     }
 
