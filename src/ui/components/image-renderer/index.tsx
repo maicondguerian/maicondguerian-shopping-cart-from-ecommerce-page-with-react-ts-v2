@@ -1,5 +1,5 @@
 type ImageRendererProps = {
-    path: string;
+    path: string | undefined;
     onClick?: () => void;
     width?: number | null;
 } & React.ImgHTMLAttributes<HTMLImageElement>

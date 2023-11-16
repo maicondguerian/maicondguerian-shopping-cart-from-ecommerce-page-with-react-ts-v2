@@ -78,7 +78,8 @@ export function ProductCarrousekImageComponent() {
                             src: selectedImage === null ? galleryImages[0].fullSizedImage : galleryImages.find((element) => element.id === selectedImage)?.fullSizedImage || "/assets/image-product-1.jpg",
                             height: 1200,
                             width: 1200
-                        }
+                        },
+                        style: { zIndex: "10" }
                     }} />
                 </section>
             </Styled.ProductImageGalleryWrapper>
@@ -88,6 +89,7 @@ export function ProductCarrousekImageComponent() {
                         path={selectedImage === null ? galleryImages[0].fullSizedImage :
                             galleryImages.find((image) => image.id === selectedImage)?.fullSizedImage}
                         width={550}
+
                     />
                     <div>
                         {buttonsData.map((button, i) => (

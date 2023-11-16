@@ -21,3 +21,4 @@ export const Separator = styled.hr<StyledSeparatorProps>`
     align-self: ${(props) => (props.align === "start" ? "flex-start" : props.align === "center" ? "center" : props.align === "end" ? "flex-end" : "center")};
     
 `;
+Separator.shouldForwardProp = (props) => props !== "mb";

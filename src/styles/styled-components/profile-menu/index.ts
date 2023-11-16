@@ -91,6 +91,6 @@ export const Wrapper = styled.nav<WrapperProps>`
         left: -4px;
       }
     }
-
   }
 `;
+Wrapper.shouldForwardProp = (props) => props !== "isOpen";

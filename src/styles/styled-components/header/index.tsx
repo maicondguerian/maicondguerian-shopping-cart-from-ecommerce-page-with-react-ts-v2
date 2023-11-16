@@ -24,6 +24,7 @@ const rotateDrop = css<NavbarProps>`
 type NavbarProps = {
     settings: boolean
 }
+
 export const Navbar = styled.div<NavbarProps>`
     display: flex;
     justify-content: space-around;
@@ -182,3 +183,4 @@ export const SideMenu = styled.div`
         /* display: none; */
     }
 `;
+Navbar.shouldForwardProp = (prop) => prop !== "settings";

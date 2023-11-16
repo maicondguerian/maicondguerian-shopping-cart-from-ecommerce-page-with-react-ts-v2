@@ -46,14 +46,7 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     /* display: ${(props) => props.showCheckoutCartModal ? "block" : "none"}; */
     z-index: 100;
 
-    @media screen and (max-width: 1111px) {
-        box-shadow: none;
-        /* margin-left: 3vw !important; */
-        li{
-            line-height: unset;
-        }
-    }
-
+    
     ${fadeAnimation};
 
     span{
@@ -64,8 +57,8 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
     }
     
     >div:last-of-type{
-        height: 180px;
-        padding: .5rem 0 ;
+        height: 190px;
+        padding: .5rem;
         overflow: auto;
 
         p{
@@ -75,12 +68,13 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
             height: 100%;
         }
     
-        section{
+        >section{
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
             gap: ${({ theme }) => theme.spacing.sm};
+            height: 100%;
 
             button:nth-child(1){
                 background-color: transparent;
@@ -89,24 +83,26 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
                 box-shadow: none;
 
                 &{
-                :hover{
-                    color: unset;
-                }
+                    :hover{
+                        color: unset;
+                    }
                 }
             }
 
+            >ul{
+                &:hover{
+                    transition: .1s ease-out;
+                    background-color: ${({ theme }) => theme.colors.lightGrayishBlue}; 
+                    border-radius: .2rem;
+                }
+            }
             ul{
                 display: flex;
                 align-items: center;
                 gap: 0 1rem;
                 height: 70px;
                 width: 100%;
-
-                &:hover{
-                    transition: .1s ease-out;
-                    background-color: ${({ theme }) => theme.colors.lightGrayishBlue};
-                    border-radius: .2rem;
-                }
+                position: relative;
 
                 li{
                     text-transform: capitalize;
@@ -144,12 +140,33 @@ export const CheckoutWrapper = styled.section<CheckoutWrapperProps>`
                 width: 100%;
                 text-transform: capitalize;
                 box-shadow: 0 0.063rem 0.188rem rgb(31 50 81 / 12%), 0 0.063rem 0.125rem rgb(31 50 81 / 24%);
-
                 
             }
+
+            section:nth-child(2){
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: .5rem;
+                
+                div:nth-child(2){
+                    font-weight: 600;
+                    font-size: 17px;
+                }
+            }
+
+        
         }
         
     }
+
+    @media screen and (max-width: 1111px) {
+        box-shadow: none;
+        /* margin-left: 3vw !important; */
+        li{
+            line-height: unset;
+        }
+    }
 `;
 
-CheckoutWrapper.shouldForwardProp = (prop) => prop !== "isCheckoutCartOpen";
+CheckoutWrapper.shouldForwardProp = (prop) => prop !== "showCheckoutCartModal";

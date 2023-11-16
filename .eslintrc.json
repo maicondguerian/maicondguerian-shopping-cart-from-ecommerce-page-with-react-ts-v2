@@ -24,7 +24,18 @@
             "always"
         ],
         "no-duplicate-imports": "error",
-        "no-unused-vars": "warn",
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
         "eqeqeq": "error",
         "camelcase": "error",
         "comma-spacing": [

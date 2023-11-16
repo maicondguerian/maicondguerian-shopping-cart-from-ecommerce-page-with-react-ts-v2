@@ -12,7 +12,7 @@ import SidebarHeader from "./sidebar-header";
 import { useMediaQueries } from "@/src/data/contexts/mediaQueries";
 import { IoIosArrowDown } from "react-icons/io";
 import AccountMenu from "@ui/profile-menu";
-import CustomButtom from "@ui/CustomButtom";
+import CustomButtom from "@/src/styles/styled-components/CustomButtom";
 import { HiOutlineHome } from "react-icons/hi";
 import { BiSolidMoon, BiSun, BiUser } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";

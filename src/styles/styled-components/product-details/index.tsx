@@ -1,3 +1,4 @@
+import { darken } from "polished";
 import styled from "styled-components";
 
 export const ProductWrapper = styled.section`
@@ -23,31 +24,48 @@ export const ProductWrapper = styled.section`
         color: ${({ theme }) => theme.colors.darkGrayishBlue};
     }
 
-    div{
+    >div:first-of-type{
         display: flex;
-        gap: 1rem;
+        gap: ${({ theme }) => theme.spacing.lg};
         align-items: center;
 
-        p:first-of-type{
-            font-size: 34px;
-            font-weight: 700;
+        div:first-of-type{
+            position: relative;
+            display: flex;
+            
+            span:nth-child(1){
+                font-size: 20px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -.4rem;
+            }
+            span:nth-child(2){
+                font-size: 42px;
+            }
+            span:last-of-type{
+                position: absolute;
+                right: -1rem;
+                top: .4rem;
+            }
         }
 
         p:last-of-type{
-            background-color: ${({ theme }) => theme.colors.PaleOrange};
+        /* background-color: ${({ theme }) => theme.colors.lightGrayishBlue}; */
           padding: .2rem .5rem;
-          color: ${({ theme }) => theme.colors.orange};
-          font-size: 15px;
-          font-weight: 700;
+          /* color: ${({ theme }) => theme.colors.orange}; */
+          color: #CC0C39;
+          font-weight: 500;
           border-radius: 5px;
-          font-size: 34px;
+          font-size: 26px;
+          font-weight: 200;
         }
     }
 
     >span:last-of-type{
-        font-weight: 700;
+        font-weight: 500;
         text-decoration: line-through;
-        color: ${({ theme }) => theme.colors.grayishBlue};
+        color: ${({ theme }) => darken(.1, theme.colors.grayishBlue)};
         margin-top: -.5rem;
     }
 
