@@ -4,7 +4,7 @@ import { darken } from "polished";
 import styled from "styled-components";
 
 export const Modal = styled.div`
-
+    z-index: 11;
     section:first-of-type{
         position: relative;
 

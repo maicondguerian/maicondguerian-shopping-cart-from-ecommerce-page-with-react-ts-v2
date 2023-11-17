@@ -38,7 +38,7 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
                             </ul>
                             <li><CustomButtom onClick={() => context.removeProductFromCart(i)} icon={AiOutlineDelete} size={23} /> </li>
                         </ul>
-                        <Separator width="100%" />
+                        <Separator width="100%" style={{ height: "1px" }} />
                     </section>
                 ))}
                 {context.productCartList.length > 0 && (
