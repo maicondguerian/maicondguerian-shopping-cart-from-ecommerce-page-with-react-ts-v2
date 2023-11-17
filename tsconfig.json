@@ -46,7 +46,7 @@
     }
   ],
   "file": [
-    "src/styles/styled.d.ts"
+    "src/styles/styled.d.ts",
   ],
   "resolve": {
     "extensions": [
