@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { BiSolidMoon, BiSun, BiUser } from "react-icons/bi";
+import { WiMoonAltWaningCrescent2 } from "react-icons/wi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Styled } from "@styles/";
 import { HiOutlineHome } from "react-icons/hi";
@@ -105,6 +106,8 @@ export function Header() {
                                         <li><CustomButtom icon={BiSolidMoon} size={22} name="dark" onClick={contextTheme.toggleDark} /></li>
                                         <Separator />
                                         <li><CustomButtom icon={BiSun} size={22} name="light" onClick={contextTheme.toggleLight} /></li>
+                                        <Separator />
+                                        <li><CustomButtom icon={WiMoonAltWaningCrescent2} size={22} name="system" onClick={contextTheme.toggleLight} /></li>
                                     </ul>
                                 )}
                             </ul>

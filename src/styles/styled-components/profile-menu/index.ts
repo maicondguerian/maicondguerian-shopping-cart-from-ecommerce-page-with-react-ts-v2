@@ -76,7 +76,7 @@ export const Wrapper = styled.nav<WrapperProps>`
     }
     ul:last-of-type{
       position: absolute;
-      right: -99px;
+      right: -111px;
       top: 104px;
       border: 1.3px solid  ${({ theme }) => theme.colors.sillyGray};
       border-radius: .3rem;

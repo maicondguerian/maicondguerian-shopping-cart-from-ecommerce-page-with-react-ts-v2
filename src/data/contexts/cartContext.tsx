@@ -55,7 +55,7 @@ export function CartProvider({ children }: CartProviderProps) {
                     quantity: itemQuantity,
                     price: PRODUCT.price * itemQuantity,
                     originalPrice: 125,
-                    productImage: ""
+                    productImage: "/src/assets/image-product-1-thumbnail.jpg"
                 }
             ]);
         }
