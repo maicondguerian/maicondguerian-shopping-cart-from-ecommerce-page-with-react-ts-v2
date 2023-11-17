@@ -1,5 +1,6 @@
 import * as React from "react";
 import PRODUCT from "@/product.json";
+import { galleryImages } from "@/src/ui/components/product-iimages/gallery-images";
 
 type Product = {
     id: number
@@ -55,7 +56,7 @@ export function CartProvider({ children }: CartProviderProps) {
                     quantity: itemQuantity,
                     price: PRODUCT.price * itemQuantity,
                     originalPrice: 125,
-                    productImage: "/src/assets/image-product-1-thumbnail.jpg"
+                    productImage: galleryImages[0]?.fullSizedImage
                 }
             ]);
         }
