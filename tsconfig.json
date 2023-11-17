@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "/",
+    "baseUrl": "./",
     "paths": {
       "@/*": [
         "./*"
@@ -38,7 +38,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
+    "./"
   ],
   "references": [
     {
