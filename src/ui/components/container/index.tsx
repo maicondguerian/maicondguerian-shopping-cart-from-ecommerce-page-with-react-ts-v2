@@ -5,7 +5,7 @@ type ContainerProps = {
     children?: React.ReactNode;
 } & React.HtmlHTMLAttributes<HTMLDivElement>
 
-export default function Container({ children, onClick, ...rest }: ContainerProps) {
+export function Container({ children, onClick, ...rest }: ContainerProps) {
     const querieContext = useMediaQueries();
     return (
         <Styled.Container

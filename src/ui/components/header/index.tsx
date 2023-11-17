@@ -1,23 +1,23 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
+import { BiSolidMoon, BiSun, BiUser } from "react-icons/bi";
+import { IoIosArrowDown } from "react-icons/io";
 import { Styled } from "@styles/";
+import { HiOutlineHome } from "react-icons/hi";
 import Separator from "@ui/separador";
 import usePath from "@src/data/custom-hooks/usePath";
 import { ImageRenderer } from "@ui/image-renderer";
 import avatar from "@src/assets/image-avatar.png";
 import ShoppingCart from "@/src/ui/components/cart-buttom";
 import { useCart } from "@/src/data/contexts/cartContext";
-import { CartCheckout } from "../cart-check-out";
-import SidebarHeader from "./sidebar-header";
+import { CartCheckout } from "@ui/cart-check-out";
+import SidebarHeader from "@ui/header/sidebar-header";
 import { useMediaQueries } from "@/src/data/contexts/mediaQueries";
-import { IoIosArrowDown } from "react-icons/io";
 import AccountMenu from "@ui/profile-menu";
-import CustomButtom from "@/src/styles/styled-components/CustomButtom";
-import { HiOutlineHome } from "react-icons/hi";
-import { BiSolidMoon, BiSun, BiUser } from "react-icons/bi";
-import { FiLogOut } from "react-icons/fi";
+import CustomButtom from "@/src/ui/components/CustomButtom";
 import { useTheme } from "@/src/data/contexts/themeContext";
-import { Logo } from "./svg-treatment";
+import { Logo } from "@ui/header/svg-treatment";
 
 export function Header() {
     const context = useCart();
@@ -25,6 +25,7 @@ export function Header() {
     const [prevCartQuantity, setPrevCartQuantity] = React.useState(context.cartQuantity);
     const [showMenuTheme, setShowMenuTheme] = React.useState(false);
     const contextTheme = useTheme();
+
     React.useEffect(() => {
         if (context.cartQuantity !== prevCartQuantity) {
             setPrevCartQuantity(context.cartQuantity);
@@ -113,7 +114,6 @@ export function Header() {
                 </ul>
                 <CartCheckout
                     showCheckoutCartModal={context.showCheckoutCartModal}
-
                 />
             </Styled.Navbar>
             <Separator width="70%" align="center" />

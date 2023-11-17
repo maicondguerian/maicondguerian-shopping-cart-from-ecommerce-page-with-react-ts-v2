@@ -1,11 +1,11 @@
+import { AiOutlineDelete } from "react-icons/ai";
 import Separator from "@ui/separador";
-import { ImageRenderer } from "../image-renderer";
-import { AddToCartButtom } from "../quantity-counter-button";
+import { ImageRenderer } from "@ui/image-renderer";
+import { AddToCartButtom } from "@ui/quantity-counter-button";
 import { useCart } from "@/src/data/contexts/cartContext";
 import { Styled } from "@/src/styles";
 import { PriceFormatter } from "@/src/data/utils/price-formatter";
-import { AiOutlineDelete } from "react-icons/ai";
-import { ChangeImageButtom as TrashButtom } from "../product-iimages/gallery-imeges-modal";
+import CustomButtom from "@ui/CustomButtom";
 
 type CartCheckoutProps = {
     className?: string
@@ -23,38 +23,36 @@ export function CartCheckout({ className, showCheckoutCartModal }: CartCheckoutP
             className={className}
         >
             <span>Cart</span>
-            <Separator mb="0" />
+            <Separator />
             <div>
                 {context.cartQuantity === 0 && (
                     <p>Your cart is empty</p>
                 )}
-                <>
-                    {context.productCartList.map((elem, i) => (
-                        <section key={elem.id}>
+                {context.productCartList.map((elem, i) => (
+                    <section key={elem.id}>
+                        <ul>
+                            <li><ImageRenderer path={elem.productImage} width={70} /></li>
                             <ul>
-                                <li><ImageRenderer path={elem.productImage} width={70} /></li>
-                                <ul>
-                                    <li>{elem.title}</li>
-                                    <li>{PriceFormatter(elem.price)} x {elem.quantity} <strong>{PriceFormatter(elem.price * elem.quantity)}</strong></li>
-                                </ul>
-                                <li><TrashButtom onClick={() => context.removeProductFromCart(i)} icon={AiOutlineDelete} size={23} /> </li>
+                                <li>{elem.title}</li>
+                                <li>{PriceFormatter(elem.price)} x {elem.quantity} <strong>{PriceFormatter(elem.price * elem.quantity)}</strong></li>
                             </ul>
-                            <Separator width="100%" />
+                            <li><CustomButtom onClick={() => context.removeProductFromCart(i)} icon={AiOutlineDelete} size={23} /> </li>
+                        </ul>
+                        <Separator width="100%" />
+                    </section>
+                ))}
+                {context.productCartList.length > 0 && (
+                    <div>
+                        <section>
+                            <div>subtotal:</div>
+                            <div>{PriceFormatter(getSubTotal)}</div>
                         </section>
-                    ))}
-                    {context.productCartList.length > 0 && (
-                        <div>
-                            <section>
-                                <div>subtotal:</div>
-                                <div>{PriceFormatter(getSubTotal)}</div>
-                            </section>
-                            <Separator width="100%" style={{ width: "calc(100% + 1rem)" }} />
-                            <AddToCartButtom
-                                name={"checkout"}
-                            />
-                        </div>
-                    )}
-                </>
+                        <Separator width="100%" style={{ width: "calc(100% + 1rem)" }} />
+                        <AddToCartButtom
+                            name={"checkout"}
+                        />
+                    </div>
+                )}
             </div>
         </Styled.CheckoutWrapper >
     );
