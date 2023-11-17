@@ -5,7 +5,7 @@ import App from "@src/App";
 import Colections from "@src/pages/collecitons";
 import { CartProvider } from "./data/contexts/cartContext";
 import HomePage from "./pages/home";
-import { MediaQueriesProvider } from "./data/contexts/mediaQueries";
+import { MediaQueriesProvider } from "@src/data/contexts/mediaQueries";
 import { ThemeProvider } from "./data/contexts/themeContext";
 
 const router = createBrowserRouter([

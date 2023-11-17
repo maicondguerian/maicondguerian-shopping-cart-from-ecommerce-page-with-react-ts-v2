@@ -2,7 +2,7 @@
 import { Styled } from "@/src/styles";
 import Separator from "../separador";
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from "react-icons/ti";
-import { useMediaQueries } from "@/src/data/contexts/mediaQueries";
+import { useMediaQueries } from "@src/data/contexts/mediaQueries";
 import { Logo } from "../header/svg-treatment";
 
 export function Footer() {

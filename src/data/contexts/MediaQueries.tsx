@@ -58,6 +58,6 @@ export function MediaQueriesProvider({ children }: MediaQueriesProviderProps) {
 }
 
 export function useMediaQueries() {
-    const context = React.useContext(MediaQueriesContext);
-    return context;
+    const querieContext = React.useContext(MediaQueriesContext);
+    return querieContext;
 }
