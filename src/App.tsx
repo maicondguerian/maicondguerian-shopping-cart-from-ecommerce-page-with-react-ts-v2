@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Container from "@ui/container";
 import { Header } from "@ui/header";
 import { useCart } from "@src/data/contexts/cartContext";
-import { useMediaQueries } from "@src/data/contexts/mediaQueries";
+import { useMediaQueries } from "./data/contexts/mediaQueries";
 import { Footer } from "@ui/footer";
 import { useTheme } from "@src/data/contexts/themeContext";
 
