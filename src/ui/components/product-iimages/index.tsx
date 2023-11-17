@@ -6,7 +6,7 @@ import { ChangeImageButtom, FullsizeImageModal } from "./gallery-imeges-modal";
 import ReactImageMagnify from "react-image-magnify";
 import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
-import { useMediaQueries } from "@/src/data/contexts/mediaQueries";
+import { useMediaQueries } from "@src/data/contexts/mediaQueries";
 
 export function ProductCarrousekImageComponent() {
     const [selectedImage, setSelectedImage] = React.useState<null | number>(null);

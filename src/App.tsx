@@ -1,4 +1,4 @@
-import { useMediaQueries } from "@src/data/contexts/mediaQueries.tsx";
+import { useMediaQueries } from "@src/data/contexts/mediaQueries";
 import { GlobalStyles } from "@styles/";
 import { ThemeProvider } from "styled-components";
 import { Outlet } from "react-router-dom";

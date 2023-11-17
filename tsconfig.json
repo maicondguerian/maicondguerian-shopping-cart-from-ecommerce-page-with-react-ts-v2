@@ -47,5 +47,13 @@
   ],
   "file": [
     "src/styles/styled.d.ts"
-  ]
+  ],
+  "resolve": {
+    "extensions": [
+      ".tsx",
+      ".ts",
+      ".js",
+      ".json"
+    ]
+  }
 }

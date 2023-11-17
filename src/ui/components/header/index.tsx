@@ -13,7 +13,7 @@ import ShoppingCart from "@/src/ui/components/cart-buttom";
 import { useCart } from "@/src/data/contexts/cartContext";
 import { CartCheckout } from "@ui/cart-check-out";
 import SidebarHeader from "@ui/header/sidebar-header";
-import { useMediaQueries } from "@/src/data/contexts/mediaQueries";
+import { useMediaQueries } from "@src/data/contexts/mediaQueries";
 import AccountMenu from "@ui/profile-menu";
 import CustomButtom from "@/src/ui/components/CustomButtom";
 import { useTheme } from "@/src/data/contexts/themeContext";
